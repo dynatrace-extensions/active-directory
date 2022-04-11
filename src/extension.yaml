@@ -1,0 +1,903 @@
+name: custom:com.dynatrace.extension.active-directory
+version: 2.0.0
+minDynatraceVersion: "1.223"
+author:
+  name: Dynatrace
+
+metrics:
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.requests.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.requests.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec)'
+    metadata:
+      displayName: Total DHCP requests/s
+      description: Total rate of DHCP requests received by the DHCP server and server v6
+      unit: PerSecond
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.releases.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.releases.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec)'
+    metadata:
+      displayName: Total DHCP releases/s
+      description: Total rate of DHCP releases received by the DHCP server and server v6
+      unit: PerSecond
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.declines.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.declines.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec)'
+    metadata:
+      displayName: Total DHCP declines/s
+      description: Total rate of DHCP declines received by the DHCP server and server v6
+      unit: PerSecond
+
+  - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
+    metadata:
+      displayName: DNS caching memory
+      description: Total caching memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total
+    metadata:
+      displayName: DNS database node memory
+      description: Total database node memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total
+    metadata:
+      displayName: DNS Nbstat memory
+      description: Total Nbstat memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total
+    metadata:
+      displayName: DNS TCP message memory
+      description: Total TCP message memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count
+    metadata:
+      displayName: DNS dynamic update requests
+      description: Total number of dynamic update requests received by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count
+    metadata:
+      displayName: DNS rejected dynamic updates
+      description: Total number of dynamic updates rejected by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count
+    metadata:
+      displayName: DNS dynamic update timeouts
+      description: Total number of dynamic update timeouts of the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count
+    metadata:
+      displayName: DNS written dynamic updates
+      description: Total number of dynamic updates written to the database by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec
+    metadata:
+      displayName: DNS empty dynamic update requests/s
+      description: Average number of No-operation/Empty dynamic update requests per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec
+    metadata:
+      displayName: DNS dynamic update requests/s
+      description: Average number of dynamic update requests received by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec
+    metadata:
+      displayName: DNS written dynamic updates/s
+      description: Average number of dynamic updates written to the database by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec
+    metadata:
+      displayName: DNS recursive queries/s
+      description: Average number of recursive queries received by DNS server per sencond
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec
+    metadata:
+      displayName: DNS recursive query failures/s
+      description: Average number of recursive query failures per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec
+    metadata:
+      displayName: DNS recursive query timeouts/s
+      description: Average number of recursive query sending timeouts per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total
+    metadata:
+      displayName: DNS secure update requests
+      description: Total number of secure update requests received by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total
+    metadata:
+      displayName: DNS failed secure updates
+      description: Total number of secure updates failed of the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec
+    metadata:
+      displayName: DNS secure update requests/s
+      description: Average number of secure update requests received by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec
+    metadata:
+      displayName: DNS TCP reponses/s
+      description: Average number of TCP reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec
+    metadata:
+      displayName: DNS queries received/s
+      description: Average number of queries received by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec
+    metadata:
+      displayName: DNS reponses sent/s
+      description: Average number of reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec
+    metadata:
+      displayName: DNS UDP queries received/s
+      description: Average number of UDP queries received by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec
+    metadata:
+      displayName: DNS UDP reponses sent/s
+      description: Average number of UDP reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total
+    metadata:
+      displayName: DNS unmatched response packets received
+      description: Total number of response packets received by the DNS server that do not match any outstanding remote query
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total
+    metadata:
+      displayName: DNS failed zone transfers
+      description: Total number of failed zone transfers of the master DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total
+    metadata:
+      displayName: DNS successful zone transfers
+      description: Total number of successful zone transfers of the master DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
+    metadata:
+      displayName: DHCP received requests/s
+      description: Rate of DHCP requests received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.releases.persec
+    metadata:
+      displayName: DHCP received releases/s
+      description: Rate of DHCP releases received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.declines.persec
+    metadata:
+      displayName: DHCP received declines/s
+      description: Rate of DHCP declines received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec
+    metadata:
+      displayName: DHCP failover ack messages received/s
+      description: Number of DHCP failover Binding Ack messages received
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec
+    metadata:
+      displayName: DHCP failover ack messages sent/s
+      description: Number of DHCP failover Binding Ack messages sent
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped
+    metadata:
+      displayName: DHCP binding updates dropped
+      description: Number of binding updates dropped
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue
+    metadata:
+      displayName: DHCP failover update pending messages
+      description: Number of pending outbound DHCP failover Binding Update messages
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec
+    metadata:
+      displayName: DHCP failover update messages received/s
+      description: Number of DHCP failover Binding Update messages received
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec
+    metadata:
+      displayName: DHCP failover update messages sent/s
+      description: Number of DHCP failover Binding Update messages sent
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
+    metadata:
+      displayName: DHCP received renews/s v6
+      description: Rate of DHCP renews received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec
+    metadata:
+      displayName: DHCP received releases/s v6
+      description: Rate of DHCP releases received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec
+    metadata:
+      displayName: DHCP received declines/s v6
+      description: Rate of DHCP declines recevied by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec
+    metadata:
+      displayName: DHCP received requests/s v6
+      description: Rate of DHCP requests received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec
+    metadata:
+      displayName: DHCP received solicits/s v6
+      description: Rate of DHCP solicits received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec
+    metadata:
+      displayName: DHCP received rebinds/s v6
+      description: Rate of DHCP rebinds received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication conflict files size
+      description: Total byte size of DFS replication service of conflict files
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication deleted files size
+      description: Total byte size of DFS replication service of the deleted files
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication staging folder size
+      description: Total byte size of DFS replication service of staging folder
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped
+    metadata:
+      displayName: DFS redundant file replication update records
+      description: Number of redundant file replication update records
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried
+    metadata:
+      displayName: DFS retried file installs
+      description: Number of retried file installs
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
+    metadata:
+      displayName: DFS received bytes/s
+      description: Average number of received bytes per second
+      unit: BytePerSecond
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.total
+    metadata:
+      displayName: DFS bytes received on connection
+      description: Total number of bytes received on the connection
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.filesreceived.total
+    metadata:
+      displayName: DFS files received on connection
+      description: Number of files that were received on the connection
+      unit: Count
+
+wmi:
+  - group: DNS
+    interval: 1m
+    dimensions:
+      - key: host
+        value: this:device.host
+    subgroups:
+    - subgroup: DNS
+      query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess FROM Win32_PerfFormattedData_DNS_DNS
+      metrics:
+          - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
+            value: CachingMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total
+            value: DatabaseNodeMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total
+            value: NbstatMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total
+            value: TCPMessageMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count
+            value: DynamicUpdateReceived
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count
+            value: DynamicUpdateRejected
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count
+            value: DynamicUpdateTimeOuts
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count
+            value: DynamicUpdateWrittentoDatabase
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec
+            value: DynamicUpdateNoOperationPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec
+            value: DynamicUpdateReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec
+            value: DynamicUpdateWrittentoDatabasePersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec
+            value: RecursiveQueriesPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec
+            value: RecursiveQueryFailurePersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec
+            value: RecursiveTimeOutPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total
+            value: SecureUpdateReceived
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total
+            value: SecureUpdateFailure
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec
+            value: SecureUpdateReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec
+            value: TCPResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec
+            value: TotalQueryReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec
+            value: TotalResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec
+            value: UDPQueryReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec
+            value: UDPResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total
+            value: UnmatchedResponsesReceived
+          - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total
+            value: ZoneTransferFailure
+          - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total
+            value: ZoneTransferSuccess
+      dimensions:
+          - key: dns.server.name
+            value: Name
+  - group: DHCP
+    featureSet: dhcp
+    interval: 1m
+    dimensions:
+      - key: host
+        value: this:device.host
+    subgroups:
+      - subgroup: DHCPServer
+        query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
+            value: RequestsPerSec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.releases.persec
+            value: ReleasesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.declines.persec
+            value: DeclinesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec
+            value: FailoverBndAckreceivedPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec
+            value: FailoverBndAcksentPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped
+            value: FailoverBndUpdDropped
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue
+            value: FailoverBndUpdpendinginoutboundqueue
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec
+            value: FailoverBndUpdreceivedPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec
+            value: FailoverBndUpdsentPersec
+        dimensions:
+          - key: dhcp.server.name
+            value: Name
+      - subgroup: DHCPServerv6
+        query: SELECT Name, DeclinesPersec, ReleasesPersec, RenewsPersec, RequestsPersec, SolicitsPersec, RebindsPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServerv6
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
+            value: RenewsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec
+            value: ReleasesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec
+            value: DeclinesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec
+            value: RequestsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec
+            value: SolicitsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec
+            value: RebindsPersec
+        dimensions:
+          - key: dhcp.server.name
+            value: Name
+  - group: DFS
+    featureSet: dfs
+    interval: 1m
+    dimensions:
+      - key: host
+        value: this:device.host
+    subgroups:
+      - subgroup: DFSReplicatedFolders
+        query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
+            value: ConflictSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total
+            value: DeletedSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total
+            value: StagingSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped
+            value: UpdatesDropped
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried
+            value: FileInstallsRetried
+        dimensions:
+          - key: dfs.server.name
+            value: Name
+      - subgroup: DFSReplicationConnections
+        query: SELECT Name, BytesReceivedPerSecond, TotalBytesReceived, TotalFilesReceived FROM Win32_PerfFormattedData_dfsr_DFSReplicationConnections
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
+            value: BytesReceivedPerSecond
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.total
+            value: TotalBytesReceived
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.filesreceived.total
+            value: TotalFilesReceived
+        dimensions:
+          - key: dfs.server.name
+            value: Name
+
+dashboards:
+  - path: "dashboards/dashboard.json"
+
+topology:
+  types:
+    - name: wmi:com_dynatrace_extension_ad_instance
+      displayName: Active Directory
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_{dt.entity.host}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory)
+        attributes: []
+        requiredDimensions: []
+        instanceNamePattern: Active Directory on {dt.entity.host}
+      - idPattern: wmi_ad_{host}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory)
+        attributes: []
+        requiredDimensions: []
+        instanceNamePattern: Active Directory on {host}
+    - name: wmi:com_dynatrace_extension_ad_dns
+      displayName: Active Directory DNS
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_{dt.entity.host}_{dns.server.name}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dns)
+        attributes:
+          - pattern: '{dns.server.name}'
+            key: wmi_ad_dns_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DNS {dns.server.name} on {dt.entity.host}
+      - idPattern: wmi_ad_{host}_{dns.server.name}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dns)
+        attributes:
+          - pattern: '{dns.server.name}'
+            key: wmi_ad_dns_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DNS {dns.server.name} on {host}
+    - name: wmi:com_dynatrace_extension_ad_dhcp
+      displayName: Active Directory DHCP
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_{dt.entity.host}_{dhcp.server.name}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dhcp)
+        attributes:
+          - pattern: '{dhcp.server.name}'
+            key: wmi_ad_dhcp_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DHCP {dhcp.server.name} on {dt.entity.host}
+      - idPattern: wmi_ad_{host}_{dhcp.server.name}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dhcp)
+        attributes:
+          - pattern: '{dhcp.server.name}'
+            key: wmi_ad_dhcp_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DHCP {dhcp.server.name} on {host}
+    - name: wmi:com_dynatrace_extension_ad_dfs
+      displayName: Active Directory DFS
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_{dt.entity.host}_{dfs.server.name}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.dfs)
+        attributes:
+          - pattern: '{dfs.server.name}'
+            key: wmi_ad_dfs_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DFS {dfs.server.name} on {dt.entity.host}
+      - idPattern: wmi_ad_{host}_{dfs.server.name}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.dfs)
+        attributes:
+          - pattern: '{dfs.server.name}'
+            key: wmi_ad_dfs_name
+            displayName: Name
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host}
+
+  relationships:
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dns
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dhcp
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dfs
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_instance
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dns
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dhcp
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dfs
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+
+screens:
+  - entityType: wmi:com_dynatrace_extension_ad_dhcp
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dhcp_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server_total"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_failover"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server_v6"
+    chartsCards:
+    - key: "wmi_ad_dhcp_server_total"
+      displayName: "Server Total"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: LINE
+          metrics:
+            - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.requests.persec.total:splitBy()"
+            - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.releases.persec.total:splitBy()"
+            - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.declines.persec.total:splitBy()"
+    - key: "wmi_ad_dhcp_server"
+      displayName: "Server"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: LINE
+          metrics:
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+    - key: "wmi_ad_dhcp_failover"
+      displayName: "Server"
+      numberOfVisibleCharts: 3
+      charts:
+        - displayName: "Failover binding ACK"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: LINE
+          metrics:
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec:splitBy()"
+        - displayName: "Failover binding Update"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: LINE
+          metrics:
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec:splitBy()"
+        - displayName: "Failover binding Update messages"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: COLUMN
+          metrics:
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue:splitBy()"
+    - key: "wmi_ad_dhcp_server_v6"
+      displayName: "Server v6"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualization:
+            themeColor: DEFAULT
+            seriesType: LINE
+          metrics:
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec:splitBy()"
+            - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_dns
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dns_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_memory"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_updates"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_queries"
+    chartsCards:
+      - key: "wmi_ad_dns_memory"
+        displayName: "Memory"
+        numberOfVisibleCharts: 1
+        charts:
+          - displayName: "Memory"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.caching.memory.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total:splitBy()"
+      - key: "wmi_ad_dns_updates"
+        displayName: "Updates"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Dynamic updates"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: COLUMN
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count:splitBy()"
+          - displayName: "Dynamic updates load"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec:splitBy()"
+          - displayName: "Secure updates"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total:splitBy()"
+          - displayName: "Secure updates load"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: COLUMN
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec:splitBy()"
+      - key: "wmi_ad_dns_queries"
+        displayName: "Queries"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Queries"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+          - displayName: "Responses"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total:splitBy()"
+                visualization:
+                  themeColor: DEFAULT
+                  seriesType: COLUMN
+          - displayName: "Zone transfers"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_dfs
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dfs_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dfs_repl_folders"
+    chartsCards:
+      - key: "wmi_ad_dfs_repl_folders"
+        displayName: "Replicated Folders"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Memory"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+          - displayName: "Operations"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: COLUMN
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_instance
+    propertiesCard:
+      properties:
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dns"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dhcp"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dfs"
+    entitiesListCards:
+      - key: "wmi_ad_dc_dns"
+        displayName: "DNS"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dns), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        charts: 
+          - displayName: "Queries"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+      - key: "wmi_ad_dc_dhcp"
+        displayName: "DHCP"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dhcp), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        charts: 
+          - displayName: "Load"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+      - key: "wmi_ad_dc_dfs"
+        displayName: "DFS"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dfs), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        charts: 
+          - displayName: "Memory"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
