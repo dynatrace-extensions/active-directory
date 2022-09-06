@@ -1,6 +1,6 @@
-name: custom:com.dynatrace.extension.active-directory
-version: 2.0.0
-minDynatraceVersion: "1.223"
+name: com.dynatrace.extension.<%=extensionName%>
+version: <%=version%>
+minDynatraceVersion: "1.233"
 author:
   name: Dynatrace
 
@@ -277,6 +277,7 @@ wmi:
     subgroups:
     - subgroup: DNS
       query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess FROM Win32_PerfFormattedData_DNS_DNS
+      featureSet: dns
       metrics:
           - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
             value: CachingMemory
@@ -335,7 +336,6 @@ wmi:
           - key: dns.server.name
             value: Name
   - group: DHCP
-    featureSet: dhcp
     interval: 1m
     dimensions:
       - key: host
@@ -343,6 +343,7 @@ wmi:
     subgroups:
       - subgroup: DHCPServer
         query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
+        featureSet: dhcp
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
             value: RequestsPerSec
@@ -367,6 +368,7 @@ wmi:
             value: Name
       - subgroup: DHCPServerv6
         query: SELECT Name, DeclinesPersec, ReleasesPersec, RenewsPersec, RequestsPersec, SolicitsPersec, RebindsPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServerv6
+        featureSet: dhcpv6
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
             value: RenewsPersec
@@ -392,6 +394,7 @@ wmi:
     subgroups:
       - subgroup: DFSReplicatedFolders
         query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
+        featureSet: dfsfolders
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
             value: ConflictSpaceInUse
@@ -408,6 +411,7 @@ wmi:
             value: Name
       - subgroup: DFSReplicationConnections
         query: SELECT Name, BytesReceivedPerSecond, TotalBytesReceived, TotalFilesReceived FROM Win32_PerfFormattedData_dfsr_DFSReplicationConnections
+        featureSet: dfsconnections
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
             value: BytesReceivedPerSecond
@@ -567,6 +571,48 @@ topology:
           condition: $prefix(com.dynatrace.extension.active-directory)
 
 screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: ENTITIES_LIST
+        key: ad-host-feature-chart
+        conditions:
+          - relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_instance), fromRelationships.RunsOn($(entityConditions))
+    entitiesListCards:
+      - key: ad-host-feature-chart
+        displayName: Active Directory metrics
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_instance), fromRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "DNS"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+          - displayName: "DHCP"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+          - displayName: "DFS"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
   - entityType: wmi:com_dynatrace_extension_ad_dhcp
     propertiesCard:
       properties:
@@ -847,6 +893,8 @@ screens:
             key: "wmi_ad_dc_dhcp"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dfs"
+          - type: "ENTITIES_LIST"
+            key: "dt_host_instance"
     entitiesListCards:
       - key: "wmi_ad_dc_dns"
         displayName: "DNS"
@@ -901,3 +949,28 @@ screens:
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+      - key: "dt_host_instance"
+        displayName: "Host metrics"
+        entitySelectorTemplate: "type(Host), toRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "CPU usage"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "builtin:host.cpu.idle:splitBy()"
+              - metricSelector: "builtin:host.cpu.user:splitBy()"
+              - metricSelector: "builtin:host.cpu.system:splitBy()"
+          - displayName: "Memory usage"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "builtin:host.mem.total:splitBy()"
+              - metricSelector: "builtin:host.mem.used:splitBy()"
+              - metricSelector: "builtin:host.mem.recl:splitBy()"
