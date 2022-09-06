@@ -277,6 +277,7 @@ wmi:
     subgroups:
     - subgroup: DNS
       query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess FROM Win32_PerfFormattedData_DNS_DNS
+      featureSet: dns
       metrics:
           - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
             value: CachingMemory
@@ -335,7 +336,6 @@ wmi:
           - key: dns.server.name
             value: Name
   - group: DHCP
-    featureSet: dhcp
     interval: 1m
     dimensions:
       - key: host
@@ -343,6 +343,7 @@ wmi:
     subgroups:
       - subgroup: DHCPServer
         query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
+        featureSet: dhcp
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
             value: RequestsPerSec
@@ -367,6 +368,7 @@ wmi:
             value: Name
       - subgroup: DHCPServerv6
         query: SELECT Name, DeclinesPersec, ReleasesPersec, RenewsPersec, RequestsPersec, SolicitsPersec, RebindsPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServerv6
+        featureSet: dhcpv6
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
             value: RenewsPersec
@@ -392,6 +394,7 @@ wmi:
     subgroups:
       - subgroup: DFSReplicatedFolders
         query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
+        featureSet: dfsfolders
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
             value: ConflictSpaceInUse
@@ -408,6 +411,7 @@ wmi:
             value: Name
       - subgroup: DFSReplicationConnections
         query: SELECT Name, BytesReceivedPerSecond, TotalBytesReceived, TotalFilesReceived FROM Win32_PerfFormattedData_dfsr_DFSReplicationConnections
+        featureSet: dfsconnections
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
             value: BytesReceivedPerSecond
