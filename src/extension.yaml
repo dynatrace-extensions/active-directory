@@ -1,6 +1,6 @@
-name: custom:com.dynatrace.extension.active-directory
-version: 2.0.0
-minDynatraceVersion: "1.223"
+name: com.dynatrace.extension.<%=extensionName%>
+version: <%=version%>
+minDynatraceVersion: "1.233"
 author:
   name: Dynatrace
 
@@ -567,6 +567,48 @@ topology:
           condition: $prefix(com.dynatrace.extension.active-directory)
 
 screens:
+  - entityType: HOST
+    detailsInjections:
+      - type: ENTITIES_LIST
+        key: ad-host-feature-chart
+        conditions:
+          - relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_instance), fromRelationships.RunsOn($(entityConditions))
+    entitiesListCards:
+      - key: ad-host-feature-chart
+        displayName: Active Directory metrics
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_instance), fromRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "DNS"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+          - displayName: "DHCP"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+          - displayName: "DFS"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
   - entityType: wmi:com_dynatrace_extension_ad_dhcp
     propertiesCard:
       properties:
@@ -847,6 +889,8 @@ screens:
             key: "wmi_ad_dc_dhcp"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dfs"
+          - type: "ENTITIES_LIST"
+            key: "dt_host_instance"
     entitiesListCards:
       - key: "wmi_ad_dc_dns"
         displayName: "DNS"
@@ -901,3 +945,28 @@ screens:
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
               - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+      - key: "dt_host_instance"
+        displayName: "Host metrics"
+        entitySelectorTemplate: "type(Host), toRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "CPU usage"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "builtin:host.cpu.idle:splitBy()"
+              - metricSelector: "builtin:host.cpu.user:splitBy()"
+              - metricSelector: "builtin:host.cpu.system:splitBy()"
+          - displayName: "Memory usage"
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "builtin:host.mem.total:splitBy()"
+              - metricSelector: "builtin:host.mem.used:splitBy()"
+              - metricSelector: "builtin:host.mem.recl:splitBy()"
