@@ -1,10 +1,25 @@
 name: com.dynatrace.extension.active-directory
-version: 2.0.1
+version: 2.1.0
 minDynatraceVersion: "1.233"
 author:
   name: Dynatrace
 
 metrics:
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.processor
+    metadata:
+      displayName: Used processor time
+      description: Percent of used processor time
+      unit: Percent
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.idle
+    metadata:
+      displayName: Idle processor time
+      description: Percent of idle processor time
+      unit: Percent
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.user
+    metadata:
+      displayName: User processor time
+      description: Percent of user processor time
+      unit: Percent
   - key: func:com.dynatrace.extension.active-directory.dhcp.server.requests.persec.total
     query:
       metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.requests.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec)'
@@ -26,7 +41,6 @@ metrics:
       displayName: Total DHCP declines/s
       description: Total rate of DHCP declines received by the DHCP server and server v6
       unit: PerSecond
-
   - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
     metadata:
       displayName: DNS caching memory
@@ -269,6 +283,24 @@ metrics:
       unit: Count
 
 wmi:
+  - group: Host
+    interval: 1m
+    dimensions:
+      - key: host
+        value: this:device.host
+    subgroups:
+    - subgroup: CPU
+      query: SELECT Name, PercentProcessorTime, PercentIdleTime, PercentUserTime FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name LIKE '_Total'
+      metrics:
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.processor
+            value: column:PercentProcessorTime
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.idle
+            value: column:PercentIdleTime
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.user
+            value: column:PercentUserTime
+      dimensions:
+          - key: host.cpu.id
+            value: column:Name
   - group: DNS
     interval: 1m
     dimensions:
@@ -277,6 +309,7 @@ wmi:
     subgroups:
     - subgroup: DNS
       query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess FROM Win32_PerfFormattedData_DNS_DNS
+      featureSet: dns
       metrics:
           - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
             value: CachingMemory
@@ -335,7 +368,6 @@ wmi:
           - key: dns.server.name
             value: Name
   - group: DHCP
-    featureSet: dhcp
     interval: 1m
     dimensions:
       - key: host
@@ -343,6 +375,7 @@ wmi:
     subgroups:
       - subgroup: DHCPServer
         query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
+        featureSet: dhcp
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
             value: RequestsPerSec
@@ -367,6 +400,7 @@ wmi:
             value: Name
       - subgroup: DHCPServerv6
         query: SELECT Name, DeclinesPersec, ReleasesPersec, RenewsPersec, RequestsPersec, SolicitsPersec, RebindsPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServerv6
+        featureSet: dhcpv6
         metrics:
           - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
             value: RenewsPersec
@@ -384,7 +418,6 @@ wmi:
           - key: dhcp.server.name
             value: Name
   - group: DFS
-    featureSet: dfs
     interval: 1m
     dimensions:
       - key: host
@@ -392,6 +425,7 @@ wmi:
     subgroups:
       - subgroup: DFSReplicatedFolders
         query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
+        featureSet: dfsfolders
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
             value: ConflictSpaceInUse
@@ -408,6 +442,7 @@ wmi:
             value: Name
       - subgroup: DFSReplicationConnections
         query: SELECT Name, BytesReceivedPerSecond, TotalBytesReceived, TotalFilesReceived FROM Win32_PerfFormattedData_dfsr_DFSReplicationConnections
+        featureSet: dfsconnections
         metrics:
           - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
             value: BytesReceivedPerSecond
