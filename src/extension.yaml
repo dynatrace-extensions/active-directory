@@ -1,5 +1,5 @@
-name: com.dynatrace.extension.active-directory
-version: 2.4.5
+name: com.dynatrace.extension.<%=extensionName%>
+version: <%=version%>
 minDynatraceVersion: 1.265.0
 author:
   name: Dynatrace
