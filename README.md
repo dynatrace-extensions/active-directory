@@ -1,7 +1,3 @@
-# **⚠️ This is a mirror repository** 
-Please don't make commits here, instead contribute to:
-
-[https://github.com/dynatrace-extensions/active-directory](https://github.com/dynatrace-extensions/active-directory)
 
 # Active Directory Extension
 ### **Privileges**
