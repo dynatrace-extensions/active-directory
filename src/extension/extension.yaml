@@ -1,0 +1,2900 @@
+name: com.dynatrace.extension.<%=extensionName%>
+version: <%=version%>
+minDynatraceVersion: 1.265.0
+author:
+  name: Dynatrace
+
+dashboards:
+  - path: "dashboards/overview.json"
+
+metrics:
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.processor
+    metadata:
+      displayName: Used processor time
+      description: Percent of used processor time
+      unit: Percent
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.idle
+    metadata:
+      displayName: Idle processor time
+      description: Percent of idle processor time
+      unit: Percent
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.time.user
+    metadata:
+      displayName: User processor time
+      description: Percent of user processor time
+      unit: Percent
+  - key: com.dynatrace.extension.active-directory.server.host.cpu.logical.processors
+    metadata:
+      displayName: Number of Logical Processors
+      description: Number of Logical Processors
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.service.cpu.time
+    metadata:
+      displayName: Service processor time
+      description: Percent of processor time spend on a service
+      unit: Percent
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.requests.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.requests.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec)'
+    metadata:
+      displayName: Total DHCP requests/s
+      description: Total rate of DHCP requests received by the DHCP server and server v6
+      unit: PerSecond
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.releases.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.releases.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec)'
+    metadata:
+      displayName: Total DHCP releases/s
+      description: Total rate of DHCP releases received by the DHCP server and server v6
+      unit: PerSecond
+  - key: func:com.dynatrace.extension.active-directory.dhcp.server.declines.persec.total
+    query:
+      metricSelector: '(com.dynatrace.extension.active-directory.dhcp.server.declines.persec)+(com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec)'
+    metadata:
+      displayName: Total DHCP declines/s
+      description: Total rate of DHCP declines received by the DHCP server and server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
+    metadata:
+      displayName: DNS caching memory
+      description: Total caching memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total
+    metadata:
+      displayName: DNS database node memory
+      description: Total database node memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total
+    metadata:
+      displayName: DNS Nbstat memory
+      description: Total Nbstat memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total
+    metadata:
+      displayName: DNS TCP message memory
+      description: Total TCP message memory used by DNS server
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count
+    metadata:
+      displayName: DNS dynamic update requests
+      description: Total number of dynamic update requests received by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.queued.total.count
+    metadata:
+      displayName: DNS dynamic update queued requests
+      description: Total number of dynamic update requests queued by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries
+    metadata:
+      displayName: DNS recursive queries
+      description: Total number of recursive queries received by DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received
+    metadata:
+      displayName: DNS queries received
+      description: Total number of queries received by DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent
+    metadata:
+      displayName: DNS reponses sent
+      description: Total number of reponses sent by DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count
+    metadata:
+      displayName: DNS rejected dynamic updates
+      description: Total number of dynamic updates rejected by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count
+    metadata:
+      displayName: DNS dynamic update timeouts
+      description: Total number of dynamic update timeouts of the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count
+    metadata:
+      displayName: DNS written dynamic updates
+      description: Total number of dynamic updates written to the database by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec
+    metadata:
+      displayName: DNS empty dynamic update requests/s
+      description: Average number of No-operation/Empty dynamic update requests per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec
+    metadata:
+      displayName: DNS dynamic update requests/s
+      description: Average number of dynamic update requests received by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec
+    metadata:
+      displayName: DNS written dynamic updates/s
+      description: Average number of dynamic updates written to the database by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec
+    metadata:
+      displayName: DNS recursive queries/s
+      description: Average number of recursive queries received by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec
+    metadata:
+      displayName: DNS recursive query failures/s
+      description: Average number of recursive query failures per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec
+    metadata:
+      displayName: DNS recursive query timeouts/s
+      description: Average number of recursive query sending timeouts per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total
+    metadata:
+      displayName: DNS secure update requests
+      description: Total number of secure update requests received by the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total
+    metadata:
+      displayName: DNS failed secure updates
+      description: Total number of secure updates failed of the DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec
+    metadata:
+      displayName: DNS secure update requests/s
+      description: Average number of secure update requests received by the DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec
+    metadata:
+      displayName: DNS TCP reponses/s
+      description: Average number of TCP reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec
+    metadata:
+      displayName: DNS queries received/s
+      description: Average number of queries received by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec
+    metadata:
+      displayName: DNS reponses sent/s
+      description: Average number of reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec
+    metadata:
+      displayName: DNS UDP queries received/s
+      description: Average number of UDP queries received by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec
+    metadata:
+      displayName: DNS UDP reponses sent/s
+      description: Average number of UDP reponses sent by DNS server per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total
+    metadata:
+      displayName: DNS unmatched response packets received
+      description: Total number of response packets received by the DNS server that do not match any outstanding remote query
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total
+    metadata:
+      displayName: DNS failed zone transfers
+      description: Total number of failed zone transfers of the master DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total
+    metadata:
+      displayName: DNS successful zone transfers
+      description: Total number of successful zone transfers of the master DNS server
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
+    metadata:
+      displayName: DHCP received requests/s
+      description: Rate of DHCP requests received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.releases.persec
+    metadata:
+      displayName: DHCP received releases/s
+      description: Rate of DHCP releases received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.declines.persec
+    metadata:
+      displayName: DHCP received declines/s
+      description: Rate of DHCP declines received by the DHCP server
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec
+    metadata:
+      displayName: DHCP failover ack messages received/s
+      description: Number of DHCP failover Binding Ack messages received
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec
+    metadata:
+      displayName: DHCP failover ack messages sent/s
+      description: Number of DHCP failover Binding Ack messages sent
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped
+    metadata:
+      displayName: DHCP binding updates dropped
+      description: Number of binding updates dropped
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue
+    metadata:
+      displayName: DHCP failover update pending messages
+      description: Number of pending outbound DHCP failover Binding Update messages
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec
+    metadata:
+      displayName: DHCP failover update messages received/s
+      description: Number of DHCP failover Binding Update messages received
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec
+    metadata:
+      displayName: DHCP failover update messages sent/s
+      description: Number of DHCP failover Binding Update messages sent
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
+    metadata:
+      displayName: DHCP received renews/s v6
+      description: Rate of DHCP renews received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec
+    metadata:
+      displayName: DHCP received releases/s v6
+      description: Rate of DHCP releases received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec
+    metadata:
+      displayName: DHCP received declines/s v6
+      description: Rate of DHCP declines recevied by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec
+    metadata:
+      displayName: DHCP received requests/s v6
+      description: Rate of DHCP requests received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec
+    metadata:
+      displayName: DHCP received solicits/s v6
+      description: Rate of DHCP solicits received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec
+    metadata:
+      displayName: DHCP received rebinds/s v6
+      description: Rate of DHCP rebinds received by the DHCP Server v6
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication conflict files size
+      description: Total byte size of DFS replication service of conflict files
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication deleted files size
+      description: Total byte size of DFS replication service of the deleted files
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total
+    metadata:
+      displayName: DFS Replication staging folder size
+      description: Total byte size of DFS replication service of staging folder
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped
+    metadata:
+      displayName: DFS redundant file replication update records
+      description: Number of redundant file replication update records
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried
+    metadata:
+      displayName: DFS retried file installs
+      description: Number of retried file installs
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
+    metadata:
+      displayName: DFS received bytes/s
+      description: Average number of received bytes per second
+      unit: BytePerSecond
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.total
+    metadata:
+      displayName: DFS bytes received on connection
+      description: Total number of bytes received on the connection
+      unit: Byte
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.filesreceived.total
+    metadata:
+      displayName: DFS files received on connection
+      description: Number of files that were received on the connection
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dfs.server.replicationqueue.count
+    metadata:
+      displayName: Domain Controller Replication Queue count
+      description: The number of items in the AD Replication queue
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec
+    metadata:
+      displayName: LDAP Binds
+      description: Time spent to complete LDAP bindings
+      unit: MilliSecond
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapsuccessfulbinds.persec
+    metadata:
+      displayName: LDAP Successful Binds
+      description: Successful binds per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec
+    metadata:
+      displayName: LDAP Writes per second
+      description: The rate at which LDAP clients perform write operations
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapudpoperations.persec
+    metadata:
+      displayName: LDAP UDP Operations per second
+      description: The number of User Datagram Protocol (UDP) operations that the LDAP server is processing per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapactivethreads.total
+    metadata:
+      displayName: LDAP Active threads total
+      description: The current number of threads in use by the LDAP subsystem of the local directory service
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total
+    metadata:
+      displayName: LDAP Client Sessions
+      description: The number of sessions of connected LDAP clients
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.ldap.server.ldapsearches.persec
+    metadata:
+      displayName: LDAP Searches per second
+      description: The number of search operations per second performed by LDAP clients
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total
+    metadata:
+      displayName: ATQ Outstanding queued requests total
+      description: Current number of requests in the queue
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec
+    metadata:
+      displayName: ATQ Estimated queue delay
+      description: How long a request has to wait in the queue
+      unit: Second
+  - key: com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec
+    metadata:
+      displayName: ATQ Request latency
+      description: Time it takes to produce a request
+      unit: Second
+  - key: com.dynatrace.extension.active-directory.atq.server.atqthreadsldap.total
+    metadata:
+      displayName: ATQ Threads LDAP total
+      description: The number of threads used by the LDAP server as determined by LDAP policy
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.atq.server.atqthreadsother.total
+    metadata:
+      displayName: ATQ Threads Other total
+      description: The number of threads used by the other services
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.atq.server.atqthreadstotal.total
+    metadata:
+      displayName: ATQ Threads total
+      description: All Threads currently allocated
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total
+    metadata:
+      displayName: DRA Successful synch requests total
+      description: Number of successful DRA synchronization requests
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total
+    metadata:
+      displayName: DRA Synch requests total
+      description: Number of total DRA synchronization requests made
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count
+    metadata:
+      displayName: NTLM Authentications
+      description: Number of total NTLM authentications
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count
+    metadata:
+      displayName: NTLM Binds per second
+      description: Average NTLM binds per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.network.login.logons.count
+    metadata:
+      displayName: Network Login Profile logons
+      description: Number of network logons on the network login profile
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.network.logons.total.count
+    metadata:
+      displayName: Number of logons
+      description: Number of network logons
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.network.logons.persec.count
+    metadata:
+      displayName: Logons per second
+      description: Number of network logons per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count
+    metadata:
+      displayName: Kerberos authentications
+      description: Number of Kerberos authentications
+      unit: Count
+  - key: com.dynatrace.extension.active-directory.database.adds.persec.count
+    metadata:
+      displayName: Database adds per second
+      description: Number of Active Directory Database adds per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.database.deletes.persec.count
+    metadata:
+      displayName: Database deletes per second
+      description: Number of Active Directory Database deletes per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.database.modifies.persec.count
+    metadata:
+      displayName: Database modifies per second
+      description: Number of Active Directory Database modifies per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.database.recycles.persec.count
+    metadata:
+      displayName: Database recycles per second
+      description: Number of Active Directory Database recycles per second
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count
+    metadata:
+      displayName: ESENT Database I/O reads rate (Local Security Authority)
+      description: Number of ESENT Database I/O reads per second for the Local Security Authority
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count
+    metadata:
+      displayName: ESENT Database I/O writes rate (Local Security Authority)
+      description: Number of ESENT Database I/O writes per second for the Local Security Authority
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.persec.count
+    metadata:
+      displayName: ESENT Log I/O reads rate (Local Security Authority)
+      description: Number of ESENT Database log I/O reads per second for the Local Security Authority
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.persec.count
+    metadata:
+      displayName: ESENT Log I/O writes rate (Local Security Authority)
+      description: Number of ESENT Database log I/O writes per second for the Local Security Authority
+      unit: PerSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.latency.avg.count
+    metadata:
+      displayName: ESENT Database I/O read latency (Local Security Authority)
+      description: ESENT Database I/O read latency for the Local Security Authority
+      unit: MilliSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.latency.avg.count
+    metadata:
+      displayName: ESENT Database I/O write latency (Local Security Authority)
+      description: ESENT Database I/O write latency for the Local Security Authority
+      unit: MilliSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.latency.avg.count
+    metadata:
+      displayName: ESENT Log I/O read latency (Local Security Authority)
+      description: ESENT Log I/O read latency for the Local Security Authority
+      unit: MilliSecond
+  - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.latency.avg.count
+    metadata:
+      displayName: ESENT Log I/O writes latency (Local Security Authorityy)
+      description: ESENT Log I/O writes latency for the Local Security Authority
+      unit: MilliSecond
+
+wmi:
+  - group: Host
+    featureSet: host
+    interval:
+      minutes: 1
+    dimensions:
+      - key: host
+        value: this:device.host
+      - key: domain
+        value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: CPU Perf
+      query: SELECT Name, PercentProcessorTime, PercentIdleTime, PercentUserTime FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name LIKE '_Total'
+      metrics:
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.processor
+            value: column:PercentProcessorTime
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.idle
+            value: column:PercentIdleTime
+          - key: com.dynatrace.extension.active-directory.server.host.cpu.time.user
+            value: column:PercentUserTime
+      dimensions:
+          - key: host.cpu.id
+            value: column:Name
+    - subgroup: CPU 
+      query: SELECT Name, NumberOfLogicalProcessors FROM Win32_Processor
+      metrics:
+        - key: com.dynatrace.extension.active-directory.server.host.cpu.logical.processors
+          value: column:NumberOfLogicalProcessors
+    - subgroup: Service Performance
+      query: SELECT Name, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process Where Name='dns' OR Name='lsass'
+      featureSet: service-performance
+      metrics:
+        - key: com.dynatrace.extension.active-directory.service.cpu.time
+          value: column:PercentProcessorTime
+      dimensions:
+        - key: service.name
+          value: column:Name
+  - group: DNS
+    interval:
+      minutes: 1
+    dimensions:
+      - key: host
+        value: this:device.host
+      - key: domain
+        value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: DNS
+      query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess, RecursiveQueries, DynamicUpdateQueued, TotalQueryReceived, TotalResponseSent FROM Win32_PerfFormattedData_DNS_DNS
+      featureSet: dns
+      metrics:
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries
+            value: RecursiveQueries
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.queued.total.count
+            value: DynamicUpdateQueued
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received
+            value: TotalQueryReceived
+          - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent
+            value: TotalResponseSent
+          - key: com.dynatrace.extension.active-directory.dns.server.caching.memory.total
+            value: CachingMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total
+            value: DatabaseNodeMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total
+            value: NbstatMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total
+            value: TCPMessageMemory
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count
+            value: DynamicUpdateReceived
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count
+            value: DynamicUpdateRejected
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count
+            value: DynamicUpdateTimeOuts
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count
+            value: DynamicUpdateWrittentoDatabase
+            type: count
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec
+            value: DynamicUpdateNoOperationPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec
+            value: DynamicUpdateReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec
+            value: DynamicUpdateWrittentoDatabasePersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec
+            value: RecursiveQueriesPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec
+            value: RecursiveQueryFailurePersec
+          - key: com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec
+            value: RecursiveTimeOutPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total
+            value: SecureUpdateReceived
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total
+            value: SecureUpdateFailure
+          - key: com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec
+            value: SecureUpdateReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec
+            value: TCPResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec
+            value: TotalQueryReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec
+            value: TotalResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec
+            value: UDPQueryReceivedPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec
+            value: UDPResponseSentPersec
+          - key: com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total
+            value: UnmatchedResponsesReceived
+          - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total
+            value: ZoneTransferFailure
+          - key: com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total
+            value: ZoneTransferSuccess
+      dimensions:
+          - key: dns.server.name
+            value: Name
+  - group: Protocols
+    interval:
+      minutes: 1
+    dimensions:
+      - key: host
+        value: this:device.host
+      - key: domain
+        value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+      - subgroup: DHCPServer
+        query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
+        featureSet: dhcp
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dhcp.server.requests.persec
+            value: RequestsPerSec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.releases.persec
+            value: ReleasesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.declines.persec
+            value: DeclinesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec
+            value: FailoverBndAckreceivedPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec
+            value: FailoverBndAcksentPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped
+            value: FailoverBndUpdDropped
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue
+            value: FailoverBndUpdpendinginoutboundqueue
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec
+            value: FailoverBndUpdreceivedPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec
+            value: FailoverBndUpdsentPersec
+        dimensions:
+          - key: dhcp.server.name
+            value: Name
+      - subgroup: DHCPServerv6
+        query: SELECT Name, DeclinesPersec, ReleasesPersec, RenewsPersec, RequestsPersec, SolicitsPersec, RebindsPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServerv6
+        featureSet: dhcpv6
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec
+            value: RenewsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec
+            value: ReleasesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec
+            value: DeclinesPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec
+            value: RequestsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec
+            value: SolicitsPersec
+          - key: com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec
+            value: RebindsPersec
+        dimensions:
+          - key: dhcp.server.name
+            value: Name
+      - subgroup: LDAP
+        query: SELECT Name, LDAPBindTime, LDAPSuccessfulBindsPersec, LDAPWritesPersec, LDAPUDPoperationsPersec, LDAPActiveThreads, LDAPClientSessions, LDAPSearchesPersec FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+        featureSet: ldap
+        metrics:
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec
+            value: column:LDAPBindTime
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapsuccessfulbinds.persec
+            value: column:LDAPSuccessfulBindsPersec
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec
+            value: column:LDAPWritesPersec
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapudpoperations.persec
+            value: column:LDAPUDPoperationsPersec
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapactivethreads.total
+            value: column:LDAPActiveThreads
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total
+            value: column:LDAPClientSessions
+          - key: com.dynatrace.extension.active-directory.ldap.server.ldapsearches.persec
+            value: column:LDAPSearchesPersec
+        dimensions:
+          - key: ldap.server.name
+            value: column:Name
+  - group: DFS
+    interval:
+      minutes: 1
+    dimensions:
+      - key: host
+        value: this:device.host
+      - key: domain
+        value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+      - subgroup: DFSReplicatedFolders
+        query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
+        featureSet: dfsfolders
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
+            value: ConflictSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total
+            value: DeletedSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total
+            value: StagingSpaceInUse
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped
+            value: UpdatesDropped
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried
+            value: FileInstallsRetried
+        dimensions:
+          - key: dfs.server.name
+            value: Name
+      - subgroup: DFSReplicationConnections
+        query: SELECT Name, BytesReceivedPerSecond, TotalBytesReceived, TotalFilesReceived FROM Win32_PerfFormattedData_dfsr_DFSReplicationConnections
+        featureSet: dfsconnections
+        metrics:
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.persec
+            value: BytesReceivedPerSecond
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.bytesreceived.total
+            value: TotalBytesReceived
+          - key: com.dynatrace.extension.active-directory.dfs.server.replicationconnections.filesreceived.total
+            value: TotalFilesReceived
+        dimensions:
+          - key: dfs.server.name
+            value: Name
+  - group: Database
+    interval:
+      minutes: 1
+    dimensions:
+    - key: host
+      value: this:device.host
+    - key: domain
+      value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: Active Directory DB
+      query: select Name, DatabaseaddsPersec, DatabasedeletesPersec, DatabasemodifysPersec, DatabaserecyclesPersec from Win32_PerfFormattedData_NTDS_NTDS
+      featureSet: database-ad
+      metrics:
+        - key: com.dynatrace.extension.active-directory.database.adds.persec.count
+          value: column:DatabaseaddsPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.database.modifies.persec.count
+          value: column:DatabasemodifysPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.database.deletes.persec.count
+          value: column:DatabasedeletesPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.database.recycles.persec.count
+          value: column:DatabaserecyclesPersec
+          type: count
+      dimensions:
+        - key: db.server.name
+          value: column:Name
+    - subgroup: ESENT Local Security Authority
+      query: select Name, IODatabaseReadsPerSec, IODatabaseReadsAverageLatency, IODatabaseWritesPersec, IODatabaseWritesAverageLatency, IOLogReadsPersec, IOLogReadsAverageLatency, IOLogWritesPersec, IOLogWritesAverageLatency from Win32_PerfRawData_ESENT_Database where Name like 'lsass%'
+      featureSet: esent-database-lsa
+      metrics:
+        - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count
+          value: column:IODatabaseReadsPerSec
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.latency.avg.count
+          value: column:IODatabaseReadsAverageLatency
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count
+          value: column:IODatabaseWritesPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.latency.avg.count
+          value: column:IODatabaseWritesAverageLatency
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.persec.count
+          value: column:IOLogReadsPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.latency.avg.count
+          value: column:IOLogReadsAverageLatency
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.persec.count
+          value: column:IOLogWritesPersec
+          type: count
+        - key: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.latency.avg.count
+          value: column:IOLogWritesAverageLatency
+          type: count
+      dimensions:
+        - key: esent.server.name
+          value: column:Name
+  - group: ATQ
+    interval:
+      minutes: 1
+    dimensions:
+    - key: host
+      value: this:device.host
+    - key: domain
+      value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: ATQ
+      query: SELECT Name, ATQOutstandingQueuedRequests, ATQEstimatedQueueDelay, ATQRequestLatency, ATQThreadsLDAP, ATQThreadsOther, ATQThreadsTotal FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+      featureSet: atq
+      metrics:
+        - key: com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total
+          value: column:ATQOutstandingQueuedRequests
+        - key: com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec
+          value: column:ATQEstimatedQueueDelay
+        - key: com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec
+          value: column:ATQRequestLatency
+        - key: com.dynatrace.extension.active-directory.atq.server.atqthreadsldap.total
+          value: column:ATQThreadsLDAP
+        - key: com.dynatrace.extension.active-directory.atq.server.atqthreadsother.total
+          value: column:ATQThreadsOther
+        - key: com.dynatrace.extension.active-directory.atq.server.atqthreadstotal.total
+          value: column:ATQThreadsTotal
+      dimensions:
+        - key: atq.server.name
+          value: column:Name
+  - group: DRA
+    interval:
+      minutes: 1
+    dimensions:
+    - key: host
+      value: this:device.host
+    - key: domain
+      value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: DRA
+      query: SELECT Name, DRASyncRequestsSuccessful, DRASyncRequestsMade FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+      featureSet: dra
+      metrics:
+        - key: com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total
+          value: column:DRASyncRequestsSuccessful
+        - key: com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total
+          value: column:DRASyncRequestsMade
+      dimensions:
+        - key: dra.server.name
+          value: column:Name
+  - group: Network
+    interval:
+      minutes: 1
+    dimensions:
+    - key: host
+      value: this:device.host
+    - key: domain
+      value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: Network Login
+      query: SELECT Name, NumberOfLogons FROM Win32_NetworkLoginProfile
+      featureSet: network
+      metrics:
+        - key: com.dynatrace.extension.active-directory.network.login.logons.count
+          value: column:NumberOfLogons
+          type: count
+      dimensions:
+        - key: network.server.name
+          value: column:Name
+    - subgroup: Network Logons
+      query: SELECT Name, LogonPerSec, LogonTotal  FROM Win32_PerfRawData_PerfNet_Server
+      featureSet: network
+      metrics:
+        - key: com.dynatrace.extension.active-directory.network.logons.total.count
+          value: column:LogonTotal
+          type: count
+        - key: com.dynatrace.extension.active-directory.network.logons.persec.count
+          value: column:LogonPerSec
+          type: count
+      dimensions:
+        - key: network.server.name
+          value: column:Name
+  - group: LSA
+    interval:
+      minutes: 1
+    dimensions:
+    - key: host
+      value: this:device.host
+    - key: domain
+      value: column:Domain
+    query: SELECT Domain FROM Win32_ComputerSystem
+    subgroups:
+    - subgroup: LSA Kerberos
+      featureSet: kerberos
+      query: select Name, KerberosAuthentications from Win32_PerfRawData_Lsa_SecuritySystemWideStatistics
+      metrics:
+        - key: com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count
+          value: column:KerberosAuthentications
+          type: count
+      dimensions:
+        - key: kerberos.server.name
+          value: column:Name
+    - subgroup: LSA NTLM
+      featureSet: ntlm
+      query: select Name, NTLMAuthentications from Win32_PerfRawData_Lsa_SecuritySystemWideStatistics
+      metrics:
+        - key: com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count
+          value: column:NTLMAuthentications
+          type: count
+      dimensions:
+        - key: ntlm.server.name
+          value: column:Name
+    - subgroup: NTLM
+      query: select Name, NTLMBindsPersec from Win32_PerfRawData_DirectoryServices_DirectoryServices
+      featureSet: ntlm
+      metrics:
+        - key: com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count
+          value: column:NTLMBindsPersec
+          type: count
+      dimensions:
+        - key: ntlm.server.name
+          value: column:Name
+
+topology:
+  types:
+    - name: wmi:com_dynatrace_extension_ad_domain
+      enabled: true
+      displayName: Active Directory Domain
+      rules:
+        - idPattern: wmi_ad_{domain}
+          instanceNamePattern: Active Directory Domain {domain}
+          sources:
+            - sourceType: Metrics
+              condition: $prefix(com.dynatrace.extension.active-directory)
+          role: default
+          attributes: 
+          - key: domain_name
+            displayName: Domain Name
+            pattern: "{domain}"
+          requiredDimensions: []
+    - name: wmi:com_dynatrace_extension_ad_instance
+      displayName: Active Directory
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_{dt.entity.host}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory)
+        attributes: 
+        - key: host_name
+          displayName: Hostname
+          pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_dns
+      displayName: Active Directory DNS
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_dns_{dt.entity.host}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dns)
+        attributes:
+          - pattern: '{dns.server.name}'
+            key: wmi_ad_dns_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DNS on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_dhcp
+      displayName: Active Directory DHCP
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_dhcp_{dt.entity.host}
+        sources:
+          - sourceType: Metrics
+            condition: $prefix(com.dynatrace.extension.active-directory.dhcp)
+        attributes:
+          - pattern: '{dhcp.server.name}'
+            key: wmi_ad_dhcp_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DHCP on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_dfs
+      displayName: Active Directory DFS
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_dfs_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.dfs)
+        attributes:
+          - pattern: '{dfs.server.name}'
+            key: wmi_ad_dfs_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_ldap
+      displayName: Active Directory LDAP
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_ldap_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.ldap)
+        attributes:
+          - pattern: '{ldap.server.name}'
+            key: wmi_ad_ldap_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory LDAP on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_atq
+      displayName: Active Directory ATQ
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_atq_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.atq)
+        attributes:
+          - pattern: '{atq.server.name}'
+            key: wmi_ad_atq_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory ATQ on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_dra
+      displayName: Active Directory DRA
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_dra_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.dra)
+        attributes:
+          - pattern: '{dra.server.name}'
+            key: wmi_ad_dra_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DRA on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_network
+      displayName: Active Directory Network
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_network_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.network)
+        attributes:
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory Network on {host.name}
+    - name: wmi:com_dynatrace_extension_lsa_ntlm
+      displayName: Local Security Authority NTLM
+      enabled: true
+      rules:
+      - idPattern: wmi_lsass_ntlm_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.lsass.server.ntlm)
+        attributes:
+          - pattern: '{ntlm.server.name}'
+            key: wmi_lsass_ntlm_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Local Security Authority NTLM on {host.name}
+    - name: wmi:com_dynatrace_extension_lsa_kerberos
+      displayName: Local Security Authority Kerberos
+      enabled: true
+      rules:
+      - idPattern: wmi_lsass_kerberos_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.lsass.server.kerberos)
+        attributes:
+          - pattern: '{kerberos.server.name}'
+            key: wmi_lsass_krbs_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Local Security Authority Kerberos on {host.name}
+    - name: wmi:com_dynatrace_extension_ad_db
+      displayName: Active Directory Database
+      enabled: true
+      rules:
+      - idPattern: wmi_ad_db_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.database)
+        attributes:
+          - pattern: '{db.server.name}'
+            key: wmi_ad_db_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Active Directory DB on {host.name}
+    - name: wmi:com_dynatrace_extension_lsa_esent
+      displayName: Local Security Authority ESENT Database
+      enabled: true
+      rules:
+      - idPattern: wmi_lsass_esent_{dt.entity.host}
+        sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory.lsass.esent)
+        attributes:
+          - pattern: '{esent.server.name}'
+            key: wmi_lsass_esent_name
+            displayName: Name
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host.name}"
+        requiredDimensions: []
+        instanceNamePattern: Local Security Authority ESENT DB on {host.name}
+
+  relationships:
+    - enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+      fromType: wmi:com_dynatrace_extension_ad_instance
+      typeOfRelation: CHILD_OF
+      toType: wmi:com_dynatrace_extension_ad_domain
+    - enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+      fromType: host
+      typeOfRelation: CHILD_OF
+      toType: wmi:com_dynatrace_extension_ad_domain
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dns
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dhcp
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dfs
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_ldap
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_atq
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_dra
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_lsa_ntlm
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_lsa_kerberos
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_network
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_ad_db
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: CHILD_OF
+      fromType: wmi:com_dynatrace_extension_lsa_esent
+      toType: wmi:com_dynatrace_extension_ad_instance
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_instance
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dns
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dhcp
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dfs
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_ldap
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_atq
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_dra
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_lsa_kerberos
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_lsa_ntlm
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_network
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_ad_db
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+    - typeOfRelation: RUNS_ON
+      fromType: wmi:com_dynatrace_extension_lsa_esent
+      toType: host
+      enabled: true
+      sources:
+        - sourceType: Metrics
+          condition: $prefix(com.dynatrace.extension.active-directory)
+
+screens:
+  - entityType: wmi:com_dynatrace_extension_ad_domain
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: type(wmi:com_dynatrace_extension_ad_domain)
+            displayName: Active Directory Domains
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: ENTITIES_LIST
+            key: domain_controllers
+          - type: ENTITIES_LIST
+            key: hosts
+    entitiesListCards:
+      - key: domain_controllers
+        displayName: Domain Controllers
+        pageSize: 5
+        entitiesLimit: 500
+        displayCharts: false
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        displayIcons: true  
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_instance),fromRelationships.isChildOf($(entityConditions))"
+      - key: hosts
+        displayName: Domain Hosts
+        pageSize: 5
+        entitiesLimit: 500
+        displayCharts: false
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        displayIcons: true  
+        entitySelectorTemplate: "type(host),fromRelationships.isChildOf($(entityConditions))"
+  - entityType: HOST
+    detailsInjections:
+      - type: ENTITIES_LIST
+        key: ad-host-feature-chart
+        conditions:
+          - relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_instance),fromRelationships.runsOn($(entityConditions))
+    entitiesListCards:
+      - key: ad-host-feature-chart
+        displayName: Active Directory metrics
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_instance), fromRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "DNS"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+          - displayName: "DHCP"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+          - displayName: "DFS"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+          - displayName: "LDAP"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapsearches.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec:splitBy()"
+          - displayName: "ATQ"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec:splitBy()"
+          - displayName: "DRA"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy()"
+          - displayName: "AD Network"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.network.login.logons.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.network.logons.persec.count:splitBy()"
+          - displayName: "AD Database"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.database.deletes.persec.count:splitBy()"
+          - displayName: "LSA ESENT DB"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count:splitBy()"
+          - displayName: "NTLM"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy()"
+          - displayName: "Kerberos"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_instance
+    propertiesCard:
+      properties:
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dns"
+            conditions:
+              - "extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dns"
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dns),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_dns_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dns"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dhcp"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dhcp),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_dhcp_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dhcp"
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dhcpv6"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dfs"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dfs),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_dfs_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dfsconnections"
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dfsfolders"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_ldap"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_ldap),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_ldap_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=ldap"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_atq"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_atq),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_atq_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=atq"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_dra"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dra),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_dra_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=dra"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_network"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_network),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_network_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=network"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_ad_db"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_db),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_db_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=database-ad"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_lsa_esent"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_esent),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_lsa_esent_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=esent-database-lsa"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_ntlm"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_ntlm),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_ntlm_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=ntlm"
+          - type: "ENTITIES_LIST"
+            key: "wmi_ad_dc_kerberos"
+            conditions:
+              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_kerberos),fromRelationships.isChildOf($(entityConditions))"
+          - type: MESSAGE
+            key: "wmi_ad_dc_kerberos_msg"
+            width: FULL_SIZE
+            conditions:
+              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=kerberos"
+          - type: CHART_GROUP
+            key: "wmi_ad_dc_host"
+          - type: "ENTITIES_LIST"
+            key: "dt_host_instance"
+          - type: INJECTIONS
+    chartsCards:
+      - key: wmi_ad_dc_host
+        displayName: CPU Utilization
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: CPU Usage
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.server.host.cpu.time.idle:splitBy()
+                  visualization:
+                    seriesType: AREA
+                - metricSelector: com.dynatrace.extension.active-directory.server.host.cpu.time.processor:splitBy()
+                  visualization:
+                    seriesType: AREA
+                - metricSelector: com.dynatrace.extension.active-directory.server.host.cpu.time.user:splitBy()
+                  visualization:
+                    seriesType: AREA
+          - displayName: Service CPU Usage
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.service.cpu.time:splitBy(service.name)
+    entitiesListCards:
+      - key: "wmi_ad_dc_dns"
+        displayName: "DNS"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dns), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing DNS Entities
+          body: No DNS entities were found make sure the host is running the DNS service. 
+        charts: 
+          - displayName: "Queries"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+      - key: "wmi_ad_dc_dhcp"
+        displayName: "DHCP"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dhcp), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing DHCP Entities
+          body: No DHCP entities were found make sure the host is running the DHCP service.
+        charts: 
+          - displayName: "Load"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+      - key: "wmi_ad_dc_dfs"
+        displayName: "DFS"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dfs), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing DFS Entities
+          body: No DFS entities were found make sure the host is running the DFS service.
+        charts: 
+          - displayName: "Memory"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+      - key: "wmi_ad_dc_ldap"
+        displayName: "LDAP"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_ldap), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing LDAP Entities
+          body: No LDAP entities were found make sure the host is running the LDAP service.
+        charts: 
+          - displayName: "Usage"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total:splitBy()"
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapsearches.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec:splitBy()"
+      - key: "wmi_ad_dc_atq"
+        displayName: "ATQ"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_atq), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing ATQ Entities
+          body: No ATQ entities were found make sure the host is running the ATQ service.
+        charts: 
+          - displayName: "Queues"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec:splitBy()"
+      - key: "wmi_ad_dc_dra"
+        displayName: "DRA"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_dra), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing DRA Entities
+          body: No DRA entities were found make sure the host is running the DRA service.
+        charts: 
+          - displayName: "Synch requests"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy()"
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+      - key: "wmi_ad_dc_network"
+        displayName: "AD Network"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_network), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing Network Entities
+          body: No Network entities were found make sure the host is running networking services.
+        charts: 
+          - displayName: "Logons"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.network.logons.persec.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.network.login.logons.count:splitBy()"
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+                - metricSelector: "com.dynatrace.extension.active-directory.network.logons.total.count:splitBy()"
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: AREA
+      - key: "wmi_ad_dc_ntlm"
+        displayName: "NTLM"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_lsa_ntlm), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing NTLM Entities
+          body: No NTLM entities were found make sure the host is running the NTLM service.
+        charts:
+          - displayName: "Authentications"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy()"
+                  visualization:
+                    themeColor: DEFAULT
+                    seriesType: COLUMN
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count:splitBy()"              
+      - key: "wmi_ad_dc_kerberos"
+        displayName: "Kerberos"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_lsa_kerberos), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing Kerberos Entities
+          body: No Kerberos entities were found make sure the host is running the Kerberos service.
+        charts:
+          - displayName: "Authentications"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy()"
+      - key: "wmi_ad_dc_ad_db"
+        displayName: "AD Database"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_db), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing Database Entities
+          body: No Database entities were found make sure the AD Database is functioning and accessible.
+        charts:
+          - displayName: "Database usage"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy()"
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+                - metricSelector: "com.dynatrace.extension.active-directory.database.deletes.persec.count:splitBy()"
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: LINE
+      - key: "wmi_ad_dc_lsa_esent"
+        displayName: "LSA ESENT Database"
+        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_lsa_esent), fromRelationships.isChildOf($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 1
+        hideEmptyCharts: true
+        emptyState:
+          header: Missing LSA ESTENT Database Entities
+          body: No LSA ESTENT Database entities were found make sure the LSA ESTENT Database is functioning and accessible.
+        charts:
+          - displayName: "Database I/O"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: ROYALBLUE
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count:splitBy()"
+      - key: "dt_host_instance"
+        displayName: "Host metrics"
+        entitySelectorTemplate: "type(Host), toRelationships.runsOn($(entityConditions))"
+        pageSize: 5
+        displayCharts: true
+        displayIcons: true
+        enableDetailsExpandability: true
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "CPU usage"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "builtin:host.cpu.idle:splitBy()"
+                - metricSelector: "builtin:host.cpu.user:splitBy()"
+                - metricSelector: "builtin:host.cpu.system:splitBy()"
+          - displayName: "Memory usage"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "builtin:host.mem.total:splitBy()"
+                - metricSelector: "builtin:host.mem.used:splitBy()"
+                - metricSelector: "builtin:host.mem.recl:splitBy()"
+    messageCards:
+      - key: wmi_ad_dc_dns_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **DNS Service**. This can be enabled through the **dns** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_dhcp_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **DHCP Service**. This can be enabled through the **dhcp** or **dhcpv6** feature sets in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_dfs_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **DFS Service**. This can be enabled through the **dsfconnections** or **dfsfolders** feature sets in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_ldap_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **LDAP Service**. This can be enabled through the **ldap** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_atq_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **ATQ Service**. This can be enabled through the **atq** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_dra_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **DRA Service**. This can be enabled through the **dra** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_network_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **Network Services**. This can be enabled through the **network** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_network_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **Network Services**. This can be enabled through the **network** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_db_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **AD Database**. This can be enabled through the **database-ad** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_lsa_esent_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **ESENT LSA Database**. This can be enabled through the **esent-database-lsa** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_ntlm_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into the **NTLM Service**. This can be enabled through the **ntlm** feature set in your monitoring configuration.
+          theme: WARNING
+      - key: wmi_ad_dc_kerberos_msg
+        type: MESSAGE
+        message:
+          text: You're missing out on insights into **Kerberos**. This can be enabled through the **kerberos** feature set in your monitoring configuration.
+          theme: WARNING
+  - entityType: wmi:com_dynatrace_extension_ad_dhcp
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dhcp_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server_total"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_failover"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dhcp_server_v6"
+    chartsCards:
+    - key: "wmi_ad_dhcp_server_total"
+      displayName: "Server Total"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.requests.persec.total:splitBy()"
+              - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.releases.persec.total:splitBy()"
+              - metricSelector: "func:com.dynatrace.extension.active-directory.dhcp.server.declines.persec.total:splitBy()"
+    - key: "wmi_ad_dhcp_server"
+      displayName: "Server"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.releases.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.declines.persec:splitBy()"
+    - key: "wmi_ad_dhcp_failover"
+      displayName: "Server"
+      numberOfVisibleCharts: 3
+      charts:
+        - displayName: "Failover binding ACK"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec:splitBy()"
+        - displayName: "Failover binding Update"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec:splitBy()"
+        - displayName: "Failover binding Update messages"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.dropped:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue:splitBy()"
+    - key: "wmi_ad_dhcp_server_v6"
+      displayName: "Server v6"
+      numberOfVisibleCharts: 1
+      charts:
+        - displayName: "Load"
+          visualizationType: GRAPH_CHART
+          graphChartConfig:
+            visualization:
+              themeColor: DEFAULT
+              seriesType: LINE
+            metrics:
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.renews.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.releases.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.declines.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.requests.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.solicits.persec:splitBy()"
+              - metricSelector: "com.dynatrace.extension.active-directory.dhcp.server.v6.rebinds.persec:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_dns
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dns_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_memory"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_updates"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dns_queries"
+    chartsCards:
+      - key: "wmi_ad_dns_memory"
+        displayName: "Memory"
+        numberOfVisibleCharts: 1
+        charts:
+          - displayName: "Memory"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.caching.memory.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total:splitBy()"
+      - key: "wmi_ad_dns_updates"
+        displayName: "Updates"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Dynamic updates"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.total.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.timeouts.total.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.queued.total.count:splitBy()"
+          - displayName: "Dynamic updates load"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.nooperation.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.received.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.persec:splitBy()"
+          - displayName: "Secure updates"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.received.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total:splitBy()"
+          - displayName: "Secure updates load"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.secureupdate.received.persec:splitBy()"
+      - key: "wmi_ad_dns_queries"
+        displayName: "Queries"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Queries"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queryfailure.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.timeout.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpquery.received.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.recursive.queries:splitBy()"
+                  visualization:
+                    themeColor: DEFAULT
+                    seriesType: COLUMN
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalquery.received:splitBy()"
+                  visualization:
+                    themeColor: DEFAULT
+                    seriesType: COLUMN
+          - displayName: "Responses"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.tcpresponse.sent.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.udpresponse.sent.persec:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.unmatchedresponses.received.total:splitBy()"
+                  visualization:
+                    themeColor: DEFAULT
+                    seriesType: COLUMN
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.totalresponse.sent:splitBy()"
+                  visualization:
+                    themeColor: DEFAULT
+                    seriesType: COLUMN
+          - displayName: "Zone transfers"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.zonetransfer.failure.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dns.server.zonetransfer.success.total:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_dfs
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dfs_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dfs_repl_folders"
+    chartsCards:
+      - key: "wmi_ad_dfs_repl_folders"
+        displayName: "Replicated Folders"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: "Memory"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total:splitBy()"
+          - displayName: "Operations"
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped:splitBy()"
+                - metricSelector: "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried:splitBy()"
+  - entityType: wmi:com_dynatrace_extension_ad_ldap
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_ldap_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_ldap"
+          - type: INJECTIONS
+    chartsCards:
+      - key: "wmi_ad_ldap"
+        displayName: "LDAP metrics"
+        numberOfVisibleCharts: 5
+        charts:
+          - displayName: Binds
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapsuccessfulbinds.persec:splitBy()
+                  visualization:
+                    themeColor: BLUE
+                    seriesType: COLUMN
+          - displayName: Client Sessions
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+          - displayName: Active Threads
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapactivethreads.total:splitBy()
+                  visualization:
+                    themeColor: BLUE
+                    seriesType: COLUMN
+          - displayName: Usage
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: LINE
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapsearches.persec:splitBy()
+                  visualization:
+                    themeColor: BLUE
+                    seriesType: COLUMN
+          - displayName: UDP Operations per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.ldap.server.ldapudpoperations.persec:splitBy()
+  - entityType: wmi:com_dynatrace_extension_ad_atq
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_atq_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_atq"
+          - type: INJECTIONS
+    chartsCards:
+      - key: "wmi_ad_atq"
+        displayName: "ATQ metrics"
+        numberOfVisibleCharts: 4
+        chartsInRow: 2
+        charts:
+          - displayName: Outstanding queued requests
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy()
+          - displayName: Estimated queue delay
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec:splitBy()
+          - displayName: Request latency
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec:splitBy()
+          - displayName: Threads
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqthreadsldap.total:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqthreadsother.total:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+                - metricSelector: com.dynatrace.extension.active-directory.atq.server.atqthreadstotal.total:splitBy()
+                  visualization:
+                    themeColor: YELLOW
+                    seriesType: COLUMN
+  - entityType: wmi:com_dynatrace_extension_ad_dra
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_dra_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_dra"
+    chartsCards:
+      - key: "wmi_ad_dra"
+        displayName: "DRA metrics"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: Successful Synch Requests
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy()
+          - displayName: Synch Requests Total
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy()
+  - entityType: wmi:com_dynatrace_extension_lsa_ntlm
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_lsass_ntlm_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_ntlm"
+    chartsCards:
+      - key: "wmi_ad_ntlm"
+        displayName: "NTLM metrics"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: Authentications
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+          - displayName: Binds per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count:splitBy()
+                  visualization:
+                    themeColor: BLUE
+                    seriesType: LINE
+  - entityType: wmi:com_dynatrace_extension_ad_network
+    propertiesCard:
+      properties:
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_network"
+          - type: INJECTIONS
+    chartsCards:
+      - key: "wmi_ad_network"
+        displayName: "Network"
+        numberOfVisibleCharts: 3
+        charts:
+          - displayName: Network profile login
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.network.login.logons.count:splitBy()
+          - displayName: Logons total
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.network.logons.total.count:splitBy()
+          - displayName: Logons per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.network.logons.persec.count:splitBy()
+  - entityType: wmi:com_dynatrace_extension_lsa_kerberos
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_lsass_krbs_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_kerberos_auths"
+    chartsCards:
+      - key: "wmi_ad_kerberos_auths"
+        displayName: "Kerberos Authentications"
+        numberOfVisibleCharts: 1
+        charts:
+          - displayName: Total
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy()
+  - entityType: wmi:com_dynatrace_extension_ad_db
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_ad_db_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_db_usage"
+          - type: INJECTIONS
+    chartsCards:
+      - key: "wmi_ad_db_usage"
+        displayName: "Database usage"
+        numberOfVisibleCharts: 4
+        charts:
+          - displayName: Adds per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+          - displayName: Modifies per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.database.modifies.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+          - displayName: Recycles per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.database.recycles.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+          - displayName: Deletes per second
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.database.deletes.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+  - entityType: wmi:com_dynatrace_extension_lsa_esent
+    propertiesCard:
+      properties:
+        - type: ATTRIBUTE
+          attribute:
+            key: wmi_lsass_esent_name
+            displayName: Name
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
+            displayName: Active Directory instance
+        - type: RELATION
+          relation:
+            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
+            displayName: Host
+    detailsSettings:
+      staticContent:
+        breadcrumbs:
+          - type: ENTITY_LIST_REF
+            entityType: wmi:com_dynatrace_extension_ad_domain
+            displayName: Active Directory Domains
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+          - type: ENTITY_REF
+            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
+        showProblems: true
+        showProperties: true
+        showTags: true
+        showGlobalFilter: true
+        showAddTag: true
+      layout:
+        autoGenerate: false
+        cards:
+          - type: "CHART_GROUP"
+            key: "wmi_ad_esent_io"
+          - type: "CHART_GROUP"
+            key: "wmi_ad_esent_latency"
+    chartsCards:
+      - key: "wmi_ad_esent_io"
+        displayName: "ESENT Database I/O"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: Database I/O
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: LINE
+          - displayName: Log I/O
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.persec.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: LINE
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.persec.count:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: LINE
+      - key: "wmi_ad_esent_latency"
+        displayName: "ESENT Database latency"
+        numberOfVisibleCharts: 2
+        charts:
+          - displayName: Database latency
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.latency.avg.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: COLUMN
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.latency.avg.count:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
+          - displayName: Log latency
+            visualizationType: GRAPH_CHART
+            graphChartConfig:
+              visualization:
+                themeColor: DEFAULT
+                seriesType: LINE
+              metrics:
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.latency.avg.count:splitBy()
+                  visualization:
+                    themeColor: ROYALBLUE
+                    seriesType: COLUMN
+                - metricSelector: com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.latency.avg.count:splitBy()
+                  visualization:
+                    themeColor: PURPLE
+                    seriesType: COLUMN
