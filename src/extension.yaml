@@ -493,9 +493,6 @@ wmi:
     dimensions:
       - key: host
         value: this:device.host
-      - key: domain
-        value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: CPU Perf
       query: SELECT Name, PercentProcessorTime, PercentIdleTime, PercentUserTime FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name LIKE '_Total'
@@ -529,9 +526,6 @@ wmi:
     dimensions:
       - key: host
         value: this:device.host
-      - key: domain
-        value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: DNS
       query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess, RecursiveQueries, DynamicUpdateQueued, TotalQueryReceived, TotalResponseSent FROM Win32_PerfFormattedData_DNS_DNS
@@ -609,9 +603,6 @@ wmi:
     dimensions:
       - key: host
         value: this:device.host
-      - key: domain
-        value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
       - subgroup: DHCPServer
         query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
@@ -684,9 +675,6 @@ wmi:
     dimensions:
       - key: host
         value: this:device.host
-      - key: domain
-        value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
       - subgroup: DFSReplicatedFolders
         query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
@@ -724,9 +712,6 @@ wmi:
     dimensions:
     - key: host
       value: this:device.host
-    - key: domain
-      value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: Active Directory DB
       query: select Name, DatabaseaddsPersec, DatabasedeletesPersec, DatabasemodifysPersec, DatabaserecyclesPersec from Win32_PerfFormattedData_NTDS_NTDS
@@ -784,9 +769,6 @@ wmi:
     dimensions:
     - key: host
       value: this:device.host
-    - key: domain
-      value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: ATQ
       query: SELECT Name, ATQOutstandingQueuedRequests, ATQEstimatedQueueDelay, ATQRequestLatency, ATQThreadsLDAP, ATQThreadsOther, ATQThreadsTotal FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
@@ -813,9 +795,6 @@ wmi:
     dimensions:
     - key: host
       value: this:device.host
-    - key: domain
-      value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: DRA
       query: SELECT Name, DRASyncRequestsSuccessful, DRASyncRequestsMade FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
@@ -834,9 +813,6 @@ wmi:
     dimensions:
     - key: host
       value: this:device.host
-    - key: domain
-      value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: Network Login
       query: SELECT Name, NumberOfLogons FROM Win32_NetworkLoginProfile
@@ -867,9 +843,6 @@ wmi:
     dimensions:
     - key: host
       value: this:device.host
-    - key: domain
-      value: column:Domain
-    query: SELECT Domain FROM Win32_ComputerSystem
     subgroups:
     - subgroup: LSA Kerberos
       featureSet: kerberos
@@ -904,21 +877,6 @@ wmi:
 
 topology:
   types:
-    - name: wmi:com_dynatrace_extension_ad_domain
-      enabled: true
-      displayName: Active Directory Domain
-      rules:
-        - idPattern: wmi_ad_{domain}
-          instanceNamePattern: Active Directory Domain {domain}
-          sources:
-            - sourceType: Metrics
-              condition: $prefix(com.dynatrace.extension.active-directory)
-          role: default
-          attributes: 
-          - key: domain_name
-            displayName: Domain Name
-            pattern: "{domain}"
-          requiredDimensions: []
     - name: wmi:com_dynatrace_extension_ad_instance
       displayName: Active Directory
       enabled: true
@@ -1119,20 +1077,6 @@ topology:
         instanceNamePattern: Local Security Authority ESENT DB on {host.name}
 
   relationships:
-    - enabled: true
-      sources:
-        - sourceType: Metrics
-          condition: $prefix(com.dynatrace.extension.active-directory)
-      fromType: wmi:com_dynatrace_extension_ad_instance
-      typeOfRelation: CHILD_OF
-      toType: wmi:com_dynatrace_extension_ad_domain
-    - enabled: true
-      sources:
-        - sourceType: Metrics
-          condition: $prefix(com.dynatrace.extension.active-directory)
-      fromType: host
-      typeOfRelation: CHILD_OF
-      toType: wmi:com_dynatrace_extension_ad_domain
     - typeOfRelation: CHILD_OF
       fromType: wmi:com_dynatrace_extension_ad_dns
       toType: wmi:com_dynatrace_extension_ad_instance
@@ -1296,44 +1240,6 @@ topology:
           condition: $prefix(com.dynatrace.extension.active-directory)
 
 screens:
-  - entityType: wmi:com_dynatrace_extension_ad_domain
-    detailsSettings:
-      staticContent:
-        breadcrumbs:
-          - type: ENTITY_LIST_REF
-            entityType: type(wmi:com_dynatrace_extension_ad_domain)
-            displayName: Active Directory Domains
-        showProblems: true
-        showProperties: true
-        showTags: true
-        showGlobalFilter: true
-        showAddTag: true
-      layout:
-        autoGenerate: false
-        cards:
-          - type: ENTITIES_LIST
-            key: domain_controllers
-          - type: ENTITIES_LIST
-            key: hosts
-    entitiesListCards:
-      - key: domain_controllers
-        displayName: Domain Controllers
-        pageSize: 5
-        entitiesLimit: 500
-        displayCharts: false
-        enableDetailsExpandability: true
-        numberOfVisibleCharts: 2
-        displayIcons: true  
-        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_instance),fromRelationships.isChildOf($(entityConditions))"
-      - key: hosts
-        displayName: Domain Hosts
-        pageSize: 5
-        entitiesLimit: 500
-        displayCharts: false
-        enableDetailsExpandability: true
-        numberOfVisibleCharts: 2
-        displayIcons: true  
-        entitySelectorTemplate: "type(host),fromRelationships.isChildOf($(entityConditions))"
   - entityType: HOST
     detailsInjections:
       - type: ENTITIES_LIST
@@ -1466,10 +1372,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf($(entityConditions))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
         showProblems: true
         showProperties: true
         showTags: true
@@ -1989,10 +1893,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2107,10 +2009,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2256,10 +2156,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         
@@ -2316,10 +2214,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2414,10 +2310,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2499,10 +2393,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2555,10 +2447,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2613,10 +2503,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2678,10 +2566,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2726,10 +2612,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true
@@ -2811,10 +2695,8 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_domain
-            displayName: Active Directory Domains
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_domain),toRelationships.isChildOf(type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions)))
+            entityType: wmi:com_dynatrace_extension_ad_instance
+            displayName: Active Directory Instances
           - type: ENTITY_REF
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
         showProblems: true

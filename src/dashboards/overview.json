@@ -5,15 +5,14 @@
     ],
     "clusterVersion": "1.279.84.20231106-151335"
   },
-  "id": "a9d50d5b-1a6a-45c1-ba1f-8829d1778f69",
+  "id": "7a406b7f-7c01-4d4d-b666-b4882857ef92",
   "dashboardMetadata": {
-    "name": "Active Directory Overview",
+    "name": "Active Directory Overview-cloned",
     "shared": false,
     "owner": "andrea.gallo@moviri.com",
     "tags": [
       "Overview"
     ],
-    "popularity": 2,
     "hasConsistentColors": false
   },
   "tiles": [
@@ -30,7 +29,7 @@
       },
       "tileFilter": {},
       "isAutoRefreshDisabled": false,
-      "markdown": "## 🔗 Navigate to Active Directory entities\n---\n## [Domains](ui/entity/list/wmi:com_dynatrace_extension_ad_domain)\n## [Domain Controllers](ui/entity/list/wmi:com_dynatrace_extension_ad_instance)\n## [DNS](ui/entity/list/wmi:com_dynatrace_extension_ad_dns)\n## [DHCP](ui/entity/list/wmi:com_dynatrace_extension_ad_dhcp)\n## [LDAP](ui/entity/list/wmi:com_dynatrace_extension_ad_ldap)\n## [DFS](ui/entity/list/wmi:com_dynatrace_extension_ad_dfs)\n## [ATQ](ui/entity/list/wmi:com_dynatrace_extension_ad_atq)\n## [DRA](ui/entity/list/wmi:com_dynatrace_extension_ad_dra)\n## [Network](ui/entity/list/wmi:com_dynatrace_extension_ad_network)\n## [NTLM](ui/entity/list/wmi:com_dynatrace_extension_lsa_ntlm)\n## [Kerberos](ui/entity/list/wmi:com_dynatrace_extension_lsa_kerberos)\n## [Database](ui/entity/list/wmi:com_dynatrace_extension_ad_db)\n## [ESENT](ui/entity/list/wmi:com_dynatrace_extension_lsa_esent)\n"
+      "markdown": "## 🔗 Navigate to Active Directory entities\n---\n## [Domain Controllers](ui/entity/list/wmi:com_dynatrace_extension_ad_instance)\n## [DNS](ui/entity/list/wmi:com_dynatrace_extension_ad_dns)\n## [DHCP](ui/entity/list/wmi:com_dynatrace_extension_ad_dhcp)\n## [LDAP](ui/entity/list/wmi:com_dynatrace_extension_ad_ldap)\n## [DFS](ui/entity/list/wmi:com_dynatrace_extension_ad_dfs)\n## [ATQ](ui/entity/list/wmi:com_dynatrace_extension_ad_atq)\n## [DRA](ui/entity/list/wmi:com_dynatrace_extension_ad_dra)\n## [Network](ui/entity/list/wmi:com_dynatrace_extension_ad_network)\n## [NTLM](ui/entity/list/wmi:com_dynatrace_extension_lsa_ntlm)\n## [Kerberos](ui/entity/list/wmi:com_dynatrace_extension_lsa_kerberos)\n## [Database](ui/entity/list/wmi:com_dynatrace_extension_ad_db)\n## [ESENT](ui/entity/list/wmi:com_dynatrace_extension_lsa_esent)\n"
     },
     {
       "name": "Markdown",
@@ -260,7 +259,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 950,
+        "left": 760,
         "width": 190,
         "height": 114
       },
@@ -341,97 +340,6 @@
         "resolution": ""
       },
       "metricExpressions": []
-    },
-    {
-      "name": "AD Domain",
-      "nameSize": "medium",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 152,
-        "left": 380,
-        "width": 190,
-        "height": 114
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count",
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "singleValueSettings": {
-          "showTrend": false,
-          "showSparkLine": false,
-          "linkTileColorToThreshold": false
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count):limit(100):names"
-      ]
     },
     {
       "name": "Markdown",
@@ -816,7 +724,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 570,
+        "left": 380,
         "width": 190,
         "height": 114
       },
@@ -907,7 +815,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 760,
+        "left": 570,
         "width": 190,
         "height": 114
       },
@@ -998,7 +906,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 1140,
+        "left": 950,
         "width": 190,
         "height": 114
       },
@@ -1089,7 +997,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 1330,
+        "left": 1140,
         "width": 190,
         "height": 114
       },
@@ -1179,8 +1087,8 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 266,
-        "left": 380,
+        "top": 152,
+        "left": 1330,
         "width": 190,
         "height": 114
       },
@@ -1271,7 +1179,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 570,
+        "left": 380,
         "width": 190,
         "height": 114
       },
@@ -1362,7 +1270,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 760,
+        "left": 570,
         "width": 190,
         "height": 114
       },
@@ -1453,7 +1361,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 950,
+        "left": 760,
         "width": 190,
         "height": 114
       },
@@ -1544,7 +1452,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 1140,
+        "left": 950,
         "width": 190,
         "height": 114
       },
@@ -1635,7 +1543,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 1330,
+        "left": 1140,
         "width": 190,
         "height": 114
       },
@@ -1725,8 +1633,8 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 380,
-        "left": 380,
+        "top": 266,
+        "left": 1330,
         "width": 190,
         "height": 114
       },
