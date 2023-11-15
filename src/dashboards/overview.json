@@ -7,12 +7,13 @@
   },
   "id": "7a406b7f-7c01-4d4d-b666-b4882857ef92",
   "dashboardMetadata": {
-    "name": "Active Directory Overview-cloned",
+    "name": "Active Directory Overview",
     "shared": false,
     "owner": "andrea.gallo@moviri.com",
     "tags": [
       "Overview"
     ],
+    "popularity": 1,
     "hasConsistentColors": false
   },
   "tiles": [
@@ -5155,11 +5156,11 @@
       "markdown": "## Active Directory Health Status"
     },
     {
-      "name": "Healthy Hosts",
+      "name": "Healthy Services",
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 570,
+        "top": 874,
         "left": 0,
         "width": 760,
         "height": 304
@@ -5170,34 +5171,13 @@
       "queries": [
         {
           "id": "A",
-          "metric": "builtin:host.availability.state",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
-            "dt.entity.host"
+            "dt.entity.host",
+            "dt.entity.os:service"
           ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.entity.host",
-                "filterType": "ENTITY_ATTRIBUTE",
-                "filterOperator": "OR",
-                "entityAttribute": "healthState",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "HEALTHY",
-                    "evaluator": "IN"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "limit": 20,
+          "metricSelector": "builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.name\",Dnscache),eq(\"dt.osservice.name\",Netlogon),eq(\"dt.osservice.name\",NtFrs),eq(\"dt.osservice.name\",Kdc),eq(\"dt.osservice.name\",DFSR),eq(\"dt.osservice.name\",RpcSs),eq(\"dt.osservice.name\",W32Time),eq(\"dt.osservice.name\",gpsvc),eq(\"dt.osservice.name\",Dfs),eq(\"dt.osservice.name\",EventSystem),eq(\"dt.osservice.name\",DNS),eq(\"dt.osservice.name\",ADWS),eq(\"dt.osservice.name\",SamSs),eq(\"dt.osservice.name\",NTDS),eq(\"dt.osservice.name\",IsmServ)),or(eq(\"dt.osservice.status\",running)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending))",
           "rate": "NONE",
           "enabled": true
         }
@@ -5259,7 +5239,93 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"HEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):limit(20)):names"
+        "resolution=Inf&(builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.name\",Dnscache),eq(\"dt.osservice.name\",Netlogon),eq(\"dt.osservice.name\",NtFrs),eq(\"dt.osservice.name\",Kdc),eq(\"dt.osservice.name\",DFSR),eq(\"dt.osservice.name\",RpcSs),eq(\"dt.osservice.name\",W32Time),eq(\"dt.osservice.name\",gpsvc),eq(\"dt.osservice.name\",Dfs),eq(\"dt.osservice.name\",EventSystem),eq(\"dt.osservice.name\",DNS),eq(\"dt.osservice.name\",ADWS),eq(\"dt.osservice.name\",SamSs),eq(\"dt.osservice.name\",NTDS),eq(\"dt.osservice.name\",IsmServ)),or(eq(\"dt.osservice.status\",running)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending))):names"
+      ]
+    },
+    {
+      "name": "Healthy Hosts",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 570,
+        "left": 0,
+        "width": 760,
+        "height": 304
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Honeycomb",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.host"
+          ],
+          "metricSelector": "builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"HEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):filter(in(\"dt.entity.host\", entitySelector(\"type(~\"HOST~\"),toRelationships.runsOn(type(wmi:com_dynatrace_extension_ad_instance))\")))",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "HONEYCOMB",
+        "global": {},
+        "rules": [
+          {
+            "matcher": "A:",
+            "unitTransform": "auto",
+            "valueFormat": "auto",
+            "properties": {
+              "color": "GREEN",
+              "seriesType": "LINE"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "hiddenColumns": []
+        },
+        "graphChartSettings": {
+          "connectNulls": false
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"HEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):filter(in(\"dt.entity.host\",entitySelector(\"type(~\"HOST~\"),toRelationships.runsOn(type(wmi:com_dynatrace_extension_ad_instance))\")))):names"
       ]
     },
     {
@@ -5283,7 +5349,7 @@
           "splitBy": [
             "dt.entity.host"
           ],
-          "metricSelector": "builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"UNHEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):limit(20)",
+          "metricSelector": "builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"UNHEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):filter(in(\"dt.entity.host\", entitySelector(\"type(~\"HOST~\"),toRelationships.runsOn(type(wmi:com_dynatrace_extension_ad_instance))\")))",
           "rate": "NONE",
           "enabled": true
         }
@@ -5345,115 +5411,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"UNHEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):limit(20)):names"
-      ]
-    },
-    {
-      "name": "Healthy Services",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 874,
-        "left": 0,
-        "width": 760,
-        "height": 304
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Honeycomb",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "builtin:osservice.availability",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.host",
-            "dt.entity.os:service"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.osservice.status",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "running",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "HONEYCOMB",
-        "global": {},
-        "rules": [
-          {
-            "matcher": "A:",
-            "unitTransform": "auto",
-            "valueFormat": "auto",
-            "properties": {
-              "color": "GREEN",
-              "seriesType": "LINE"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": false
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=Inf&(builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.status\",running)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending)):limit(20)):names"
+        "resolution=Inf&(builtin:host.availability.state:filter(and(or(in(\"dt.entity.host\",entitySelector(\"type(host),healthState(~\"UNHEALTHY~\")\"))))):splitBy(\"dt.entity.host\"):sort(value(auto,descending)):filter(in(\"dt.entity.host\",entitySelector(\"type(~\"HOST~\"),toRelationships.runsOn(type(wmi:com_dynatrace_extension_ad_instance))\")))):names"
       ]
     },
     {
@@ -5472,34 +5430,13 @@
       "queries": [
         {
           "id": "A",
-          "metric": "builtin:osservice.availability",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
             "dt.entity.host",
             "dt.entity.os:service"
           ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "filterOperator": "AND",
-            "nestedFilters": [
-              {
-                "filter": "dt.osservice.status",
-                "filterType": "DIMENSION",
-                "filterOperator": "OR",
-                "nestedFilters": [],
-                "criteria": [
-                  {
-                    "value": "stopped",
-                    "evaluator": "EQ"
-                  }
-                ]
-              }
-            ],
-            "criteria": []
-          },
-          "limit": 20,
+          "metricSelector": "builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.name\",Dnscache),eq(\"dt.osservice.name\",Netlogon),eq(\"dt.osservice.name\",NtFrs),eq(\"dt.osservice.name\",Kdc),eq(\"dt.osservice.name\",DFSR),eq(\"dt.osservice.name\",RpcSs),eq(\"dt.osservice.name\",W32Time),eq(\"dt.osservice.name\",gpsvc),eq(\"dt.osservice.name\",Dfs),eq(\"dt.osservice.name\",EventSystem),eq(\"dt.osservice.name\",DNS),eq(\"dt.osservice.name\",ADWS),eq(\"dt.osservice.name\",SamSs),eq(\"dt.osservice.name\",NTDS),eq(\"dt.osservice.name\",IsmServ)),or(eq(\"dt.osservice.status\",stopped)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending))",
           "rate": "NONE",
           "enabled": true
         }
@@ -5561,7 +5498,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.status\",stopped)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending)):limit(20)):names"
+        "resolution=Inf&(builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.name\",Dnscache),eq(\"dt.osservice.name\",Netlogon),eq(\"dt.osservice.name\",NtFrs),eq(\"dt.osservice.name\",Kdc),eq(\"dt.osservice.name\",DFSR),eq(\"dt.osservice.name\",RpcSs),eq(\"dt.osservice.name\",W32Time),eq(\"dt.osservice.name\",gpsvc),eq(\"dt.osservice.name\",Dfs),eq(\"dt.osservice.name\",EventSystem),eq(\"dt.osservice.name\",DNS),eq(\"dt.osservice.name\",ADWS),eq(\"dt.osservice.name\",SamSs),eq(\"dt.osservice.name\",NTDS),eq(\"dt.osservice.name\",IsmServ)),or(eq(\"dt.osservice.status\",stopped)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending))):names"
       ]
     }
   ]
