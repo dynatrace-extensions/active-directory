@@ -885,10 +885,6 @@ topology:
         sources:
           - sourceType: Metrics
             condition: $prefix(com.dynatrace.extension.active-directory)
-        attributes: 
-        - key: host_name
-          displayName: Hostname
-          pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dns
@@ -899,13 +895,6 @@ topology:
         sources:
           - sourceType: Metrics
             condition: $prefix(com.dynatrace.extension.active-directory.dns)
-        attributes:
-          - pattern: '{dns.server.name}'
-            key: wmi_ad_dns_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory DNS on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dhcp
@@ -916,13 +905,6 @@ topology:
         sources:
           - sourceType: Metrics
             condition: $prefix(com.dynatrace.extension.active-directory.dhcp)
-        attributes:
-          - pattern: '{dhcp.server.name}'
-            key: wmi_ad_dhcp_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory DHCP on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dfs
@@ -937,9 +919,6 @@ topology:
           - pattern: '{dfs.server.name}'
             key: wmi_ad_dfs_name
             displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory DFS {dfs.server.name} on {host.name}
     - name: wmi:com_dynatrace_extension_ad_ldap
@@ -950,13 +929,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.ldap)
-        attributes:
-          - pattern: '{ldap.server.name}'
-            key: wmi_ad_ldap_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory LDAP on {host.name}
     - name: wmi:com_dynatrace_extension_ad_atq
@@ -967,13 +939,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.atq)
-        attributes:
-          - pattern: '{atq.server.name}'
-            key: wmi_ad_atq_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory ATQ on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dra
@@ -984,13 +949,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.dra)
-        attributes:
-          - pattern: '{dra.server.name}'
-            key: wmi_ad_dra_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory DRA on {host.name}
     - name: wmi:com_dynatrace_extension_ad_network
@@ -1001,10 +959,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.network)
-        attributes:
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory Network on {host.name}
     - name: wmi:com_dynatrace_extension_lsa_ntlm
@@ -1019,9 +973,6 @@ topology:
           - pattern: '{ntlm.server.name}'
             key: wmi_lsass_ntlm_name
             displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Local Security Authority NTLM on {host.name}
     - name: wmi:com_dynatrace_extension_lsa_kerberos
@@ -1032,13 +983,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.lsass.server.kerberos)
-        attributes:
-          - pattern: '{kerberos.server.name}'
-            key: wmi_lsass_krbs_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Local Security Authority Kerberos on {host.name}
     - name: wmi:com_dynatrace_extension_ad_db
@@ -1049,13 +993,6 @@ topology:
         sources:
         - sourceType: Metrics
           condition: $prefix(com.dynatrace.extension.active-directory.database)
-        attributes:
-          - pattern: '{db.server.name}'
-            key: wmi_ad_db_name
-            displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Active Directory DB on {host.name}
     - name: wmi:com_dynatrace_extension_lsa_esent
@@ -1070,9 +1007,6 @@ topology:
           - pattern: '{esent.server.name}'
             key: wmi_lsass_esent_name
             displayName: Name
-          - key: host_name
-            displayName: Hostname
-            pattern: "{host.name}"
         requiredDimensions: []
         instanceNamePattern: Local Security Authority ESENT DB on {host.name}
 
@@ -1877,10 +1811,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_dhcp
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_dhcp_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -1913,6 +1843,7 @@ screens:
             key: "wmi_ad_dhcp_failover"
           - type: "CHART_GROUP"
             key: "wmi_ad_dhcp_server_v6"
+          - type: INJECTIONS
     chartsCards:
     - key: "wmi_ad_dhcp_server_total"
       displayName: "Server Total"
@@ -1993,10 +1924,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_dns
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_dns_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2198,10 +2125,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_ldap
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_ldap_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2294,10 +2217,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_atq
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_atq_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2377,10 +2296,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_dra
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_dra_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2550,10 +2465,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_lsa_kerberos
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_lsass_krbs_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2596,10 +2507,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_ad_db
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_ad_db_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
@@ -2679,10 +2586,6 @@ screens:
   - entityType: wmi:com_dynatrace_extension_lsa_esent
     propertiesCard:
       properties:
-        - type: ATTRIBUTE
-          attribute:
-            key: wmi_lsass_esent_name
-            displayName: Name
         - type: RELATION
           relation:
             entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
