@@ -1,19 +1,11 @@
 {
-  "metadata": {
-    "configurationVersions": [
-      7
-    ],
-    "clusterVersion": "1.279.84.20231106-151335"
-  },
-  "id": "a9d50d5b-1a6a-45c1-ba1f-8829d1778f69",
   "dashboardMetadata": {
     "name": "Active Directory Overview",
     "shared": false,
-    "owner": "andrea.gallo@moviri.com",
+    "owner": "Dynatrace",
     "tags": [
       "Overview"
     ],
-    "popularity": 2,
     "hasConsistentColors": false
   },
   "tiles": [
