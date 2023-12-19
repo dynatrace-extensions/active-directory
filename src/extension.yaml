@@ -394,11 +394,6 @@ metrics:
       displayName: DRA Synch requests total
       description: Number of total DRA synchronization requests made
       unit: Count
-  - key: active-directory.lsass.server.ntlm.authentications.count
-    metadata:
-      displayName: NTLM Authentications
-      description: Number of total NTLM authentications
-      unit: Count
   - key: active-directory.lsass.server.ntlm.binds.persec.count
     metadata:
       displayName: NTLM Binds per second
@@ -419,11 +414,6 @@ metrics:
       displayName: Logons per second
       description: Number of network logons per second
       unit: PerSecond
-  - key: active-directory.lsass.server.kerberos.authentications.count
-    metadata:
-      displayName: Kerberos authentications
-      description: Number of Kerberos authentications
-      unit: Count
   - key: active-directory.database.adds.persec.count
     metadata:
       displayName: Database adds per second
@@ -844,36 +834,16 @@ wmi:
     - key: host
       value: this:device.host
     subgroups:
-    - subgroup: LSA Kerberos
-      featureSet: kerberos
-      query: select Name, KerberosAuthentications from Win32_PerfRawData_Lsa_SecuritySystemWideStatistics
-      metrics:
-        - key: active-directory.lsass.server.kerberos.authentications.count
-          value: column:KerberosAuthentications
-          type: count
-      dimensions:
-        - key: kerberos.server.name
-          value: column:Name
-    - subgroup: LSA NTLM
-      featureSet: ntlm
-      query: select Name, NTLMAuthentications from Win32_PerfRawData_Lsa_SecuritySystemWideStatistics
-      metrics:
-        - key: active-directory.lsass.server.ntlm.authentications.count
-          value: column:NTLMAuthentications
-          type: count
-      dimensions:
-        - key: ntlm.server.name
-          value: column:Name
-    - subgroup: NTLM
-      query: select Name, NTLMBindsPersec from Win32_PerfRawData_DirectoryServices_DirectoryServices
-      featureSet: ntlm
-      metrics:
-        - key: active-directory.lsass.server.ntlm.binds.persec.count
-          value: column:NTLMBindsPersec
-          type: count
-      dimensions:
-        - key: ntlm.server.name
-          value: column:Name
+      - subgroup: NTLM
+        query: select Name, NTLMBindsPersec from Win32_PerfRawData_DirectoryServices_DirectoryServices
+        featureSet: ntlm
+        metrics:
+          - key: active-directory.lsass.server.ntlm.binds.persec.count
+            value: column:NTLMBindsPersec
+            type: count
+        dimensions:
+          - key: ntlm.server.name
+            value: column:Name
 
 topology:
   types:
@@ -975,16 +945,6 @@ topology:
             displayName: Name
         requiredDimensions: []
         instanceNamePattern: Local Security Authority NTLM on {host.name}
-    - name: wmi:com_dynatrace_extension_lsa_kerberos
-      displayName: Local Security Authority Kerberos
-      enabled: true
-      rules:
-      - idPattern: wmi_lsass_kerberos_{dt.entity.host}
-        sources:
-        - sourceType: Metrics
-          condition: $prefix(active-directory.lsass.server.kerberos)
-        requiredDimensions: []
-        instanceNamePattern: Local Security Authority Kerberos on {host.name}
     - name: wmi:com_dynatrace_extension_ad_db
       displayName: Active Directory Database
       enabled: true
@@ -1061,13 +1021,6 @@ topology:
         - sourceType: Metrics
           condition: $prefix(active-directory)
     - typeOfRelation: CHILD_OF
-      fromType: wmi:com_dynatrace_extension_lsa_kerberos
-      toType: wmi:com_dynatrace_extension_ad_instance
-      enabled: true
-      sources:
-        - sourceType: Metrics
-          condition: $prefix(active-directory)
-    - typeOfRelation: CHILD_OF
       fromType: wmi:com_dynatrace_extension_ad_network
       toType: wmi:com_dynatrace_extension_ad_instance
       enabled: true
@@ -1132,13 +1085,6 @@ topology:
           condition: $prefix(active-directory)
     - typeOfRelation: RUNS_ON
       fromType: wmi:com_dynatrace_extension_ad_dra
-      toType: host
-      enabled: true
-      sources:
-        - sourceType: Metrics
-          condition: $prefix(active-directory)
-    - typeOfRelation: RUNS_ON
-      fromType: wmi:com_dynatrace_extension_lsa_kerberos
       toType: host
       enabled: true
       sources:
@@ -1287,14 +1233,6 @@ screens:
                 seriesType: LINE
               metrics:
                 - metricSelector: "active-directory.lsass.server.ntlm.authentications.count:splitBy()"
-          - displayName: "Kerberos"
-            visualizationType: GRAPH_CHART
-            graphChartConfig:
-              visualization:
-                themeColor: DEFAULT
-                seriesType: LINE
-              metrics:
-                - metricSelector: "active-directory.lsass.server.kerberos.authentications.count:splitBy()"
   - entityType: wmi:com_dynatrace_extension_ad_instance
     propertiesCard:
       properties:
@@ -1409,15 +1347,6 @@ screens:
             width: FULL_SIZE
             conditions:
               - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=ntlm"
-          - type: "ENTITIES_LIST"
-            key: "wmi_ad_dc_kerberos"
-            conditions:
-              - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_kerberos),fromRelationships.isChildOf($(entityConditions))"
-          - type: MESSAGE
-            key: "wmi_ad_dc_kerberos_msg"
-            width: FULL_SIZE
-            conditions:
-              - "!extensionConfigured|extensionId=custom:active-directory-wmi|featureSets=kerberos"
           - type: CHART_GROUP
             key: "wmi_ad_dc_host"
           - type: "ENTITIES_LIST"
@@ -1647,27 +1576,6 @@ screens:
                     themeColor: DEFAULT
                     seriesType: COLUMN
                 - metricSelector: "active-directory.lsass.server.ntlm.binds.persec.count:splitBy()"              
-      - key: "wmi_ad_dc_kerberos"
-        displayName: "Kerberos"
-        entitySelectorTemplate: "type(wmi:com_dynatrace_extension_lsa_kerberos), fromRelationships.isChildOf($(entityConditions))"
-        pageSize: 5
-        displayCharts: true
-        displayIcons: true
-        enableDetailsExpandability: true
-        numberOfVisibleCharts: 1
-        hideEmptyCharts: true
-        emptyState:
-          header: Missing Kerberos Entities
-          body: No Kerberos entities were found make sure the host is running the Kerberos service.
-        charts:
-          - displayName: "Authentications"
-            visualizationType: GRAPH_CHART
-            graphChartConfig:
-              visualization:
-                themeColor: DEFAULT
-                seriesType: LINE
-              metrics:
-                - metricSelector: "active-directory.lsass.server.kerberos.authentications.count:splitBy()"
       - key: "wmi_ad_dc_ad_db"
         displayName: "AD Database"
         entitySelectorTemplate: "type(wmi:com_dynatrace_extension_ad_db), fromRelationships.isChildOf($(entityConditions))"
@@ -1802,11 +1710,6 @@ screens:
         type: MESSAGE
         message:
           text: You're missing out on insights into the **NTLM Service**. This can be enabled through the **ntlm** feature set in your monitoring configuration.
-          theme: WARNING
-      - key: wmi_ad_dc_kerberos_msg
-        type: MESSAGE
-        message:
-          text: You're missing out on insights into **Kerberos**. This can be enabled through the **kerberos** feature set in your monitoring configuration.
           theme: WARNING
   - entityType: wmi:com_dynatrace_extension_ad_dhcp
     propertiesCard:
@@ -2381,17 +2284,6 @@ screens:
         displayName: "NTLM metrics"
         numberOfVisibleCharts: 2
         charts:
-          - displayName: Authentications
-            visualizationType: GRAPH_CHART
-            graphChartConfig:
-              visualization:
-                themeColor: DEFAULT
-                seriesType: LINE
-              metrics:
-                - metricSelector: active-directory.lsass.server.ntlm.authentications.count:splitBy()
-                  visualization:
-                    themeColor: PURPLE
-                    seriesType: COLUMN
           - displayName: Binds per second
             visualizationType: GRAPH_CHART
             graphChartConfig:
@@ -2462,48 +2354,6 @@ screens:
                 seriesType: LINE
               metrics:
                 - metricSelector: active-directory.network.logons.persec.count:splitBy()
-  - entityType: wmi:com_dynatrace_extension_lsa_kerberos
-    propertiesCard:
-      properties:
-        - type: RELATION
-          relation:
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance), toRelationships.isChildOf($(entityConditions))
-            displayName: Active Directory instance
-        - type: RELATION
-          relation:
-            entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
-            displayName: Host
-    detailsSettings:
-      staticContent:
-        breadcrumbs:
-          - type: ENTITY_LIST_REF
-            entityType: wmi:com_dynatrace_extension_ad_instance
-            displayName: Active Directory Instances
-          - type: ENTITY_REF
-            entitySelectorTemplate: type(wmi:com_dynatrace_extension_ad_instance),toRelationships.isChildOf($(entityConditions))
-        showProblems: true
-        showProperties: true
-        showTags: true
-        showGlobalFilter: true
-        showAddTag: true
-      layout:
-        autoGenerate: false
-        cards:
-          - type: "CHART_GROUP"
-            key: "wmi_ad_kerberos_auths"
-    chartsCards:
-      - key: "wmi_ad_kerberos_auths"
-        displayName: "Kerberos Authentications"
-        numberOfVisibleCharts: 1
-        charts:
-          - displayName: Total
-            visualizationType: GRAPH_CHART
-            graphChartConfig:
-              visualization:
-                themeColor: DEFAULT
-                seriesType: LINE
-              metrics:
-                - metricSelector: active-directory.lsass.server.kerberos.authentications.count:splitBy()
   - entityType: wmi:com_dynatrace_extension_ad_db
     propertiesCard:
       properties:
