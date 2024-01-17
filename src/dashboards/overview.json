@@ -1,8 +1,15 @@
 {
+  "metadata": {
+    "configurationVersions": [
+      7
+    ],
+    "clusterVersion": "1.281.79.20231208-113952"
+  },
+  "id": "a09b7a01-2c74-4a25-8891-6a8800262f6f",
   "dashboardMetadata": {
     "name": "Active Directory Overview",
     "shared": false,
-    "owner": "Dynatrace",
+    "owner": "moviri_integrations@moviri.com",
     "tags": [
       "Overview"
     ],
@@ -22,7 +29,7 @@
       },
       "tileFilter": {},
       "isAutoRefreshDisabled": false,
-      "markdown": "## 🔗 Navigate to Active Directory entities\n---\n## [Domain Controllers](ui/entity/list/wmi:com_dynatrace_extension_ad_instance)\n## [DNS](ui/entity/list/wmi:com_dynatrace_extension_ad_dns)\n## [DHCP](ui/entity/list/wmi:com_dynatrace_extension_ad_dhcp)\n## [LDAP](ui/entity/list/wmi:com_dynatrace_extension_ad_ldap)\n## [DFS](ui/entity/list/wmi:com_dynatrace_extension_ad_dfs)\n## [ATQ](ui/entity/list/wmi:com_dynatrace_extension_ad_atq)\n## [DRA](ui/entity/list/wmi:com_dynatrace_extension_ad_dra)\n## [Network](ui/entity/list/wmi:com_dynatrace_extension_ad_network)\n## [NTLM](ui/entity/list/wmi:com_dynatrace_extension_lsa_ntlm)\n## [Kerberos](ui/entity/list/wmi:com_dynatrace_extension_lsa_kerberos)\n## [Database](ui/entity/list/wmi:com_dynatrace_extension_ad_db)\n## [ESENT](ui/entity/list/wmi:com_dynatrace_extension_lsa_esent)\n"
+      "markdown": "## 🔗 Navigate to Active Directory entities\n---\n## [Domains](ui/entity/list/wmi:com_dynatrace_extension_ad_domain)\n## [Domain Controllers](ui/entity/list/wmi:com_dynatrace_extension_ad_instance)\n## [DNS](ui/entity/list/wmi:com_dynatrace_extension_ad_dns)\n## [DHCP](ui/entity/list/wmi:com_dynatrace_extension_ad_dhcp)\n## [LDAP](ui/entity/list/wmi:com_dynatrace_extension_ad_ldap)\n## [DFS](ui/entity/list/wmi:com_dynatrace_extension_ad_dfs)\n## [ATQ](ui/entity/list/wmi:com_dynatrace_extension_ad_atq)\n## [DRA](ui/entity/list/wmi:com_dynatrace_extension_ad_dra)\n## [Network](ui/entity/list/wmi:com_dynatrace_extension_ad_network)\n## [NTLM](ui/entity/list/wmi:com_dynatrace_extension_lsa_ntlm)\n## [Kerberos](ui/entity/list/wmi:com_dynatrace_extension_lsa_kerberos)\n## [Database](ui/entity/list/wmi:com_dynatrace_extension_ad_db)\n## [ESENT](ui/entity/list/wmi:com_dynatrace_extension_lsa_esent)\n"
     },
     {
       "name": "Markdown",
@@ -84,175 +91,13 @@
       "markdown": "## Active Directory DHCP"
     },
     {
-      "name": "DHCP Requests/Releases/Declines",
-      "nameSize": "",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1824,
-        "left": 836,
-        "width": 418,
-        "height": 266
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "active-directory.dhcp.server.requests.persec",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "active-directory.dhcp.server.declines.persec",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        },
-        {
-          "id": "B",
-          "metric": "active-directory.dhcp.server.declines.persec",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          },
-          {
-            "matcher": "B:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A",
-                "B"
-              ],
-              "defaultAxis": true
-            },
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "RIGHT",
-              "queryIds": [
-                "C",
-                "D"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": []
-    },
-    {
       "name": "DHCP Servers",
       "nameSize": "medium",
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 760,
+        "left": 950,
         "width": 190,
         "height": 114
       },
@@ -332,7 +177,9 @@
       "queriesSettings": {
         "resolution": ""
       },
-      "metricExpressions": []
+      "metricExpressions": [
+        "resolution=Inf&(active-directory.dhcp.server.requests.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):auto:splitBy():count):limit(100):names"
+      ]
     },
     {
       "name": "Markdown",
@@ -362,130 +209,6 @@
       "tileFilter": {},
       "isAutoRefreshDisabled": false,
       "markdown": "## Active Directory LDAP"
-    },
-    {
-      "name": "DHCP ACK",
-      "nameSize": "",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 1824,
-        "left": 418,
-        "width": 418,
-        "height": 266
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "active-directory.dhcp.server.failover.bndack.sent.persec",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        },
-        {
-          "id": "A",
-          "metric": "active-directory.dhcp.server.failover.bndack.received.persec",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": []
     },
     {
       "name": "Markdown",
@@ -680,20 +403,6 @@
       },
       "tileFilter": {},
       "isAutoRefreshDisabled": false,
-      "markdown": "## Active Directory Kerberos"
-    },
-    {
-      "name": "Markdown",
-      "tileType": "MARKDOWN",
-      "configured": true,
-      "bounds": {
-        "top": 4218,
-        "left": 0,
-        "width": 1254,
-        "height": 38
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
       "markdown": "## Active Directory Database"
     },
     {
@@ -701,7 +410,7 @@
       "tileType": "MARKDOWN",
       "configured": true,
       "bounds": {
-        "top": 4522,
+        "top": 4218,
         "left": 0,
         "width": 1254,
         "height": 38
@@ -717,7 +426,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 380,
+        "left": 570,
         "width": 190,
         "height": 114
       },
@@ -808,7 +517,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 570,
+        "left": 760,
         "width": 190,
         "height": 114
       },
@@ -899,7 +608,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 950,
+        "left": 1140,
         "width": 190,
         "height": 114
       },
@@ -990,7 +699,7 @@
       "configured": true,
       "bounds": {
         "top": 152,
-        "left": 1140,
+        "left": 1330,
         "width": 190,
         "height": 114
       },
@@ -1080,8 +789,8 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 152,
-        "left": 1330,
+        "top": 266,
+        "left": 380,
         "width": 190,
         "height": 114
       },
@@ -1172,7 +881,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 380,
+        "left": 570,
         "width": 190,
         "height": 114
       },
@@ -1263,7 +972,7 @@
       "configured": true,
       "bounds": {
         "top": 266,
-        "left": 570,
+        "left": 760,
         "width": 190,
         "height": 114
       },
@@ -1345,188 +1054,6 @@
       },
       "metricExpressions": [
         "resolution=Inf&(active-directory.network.login.logons.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_network\"):auto:splitBy():count):limit(100):names"
-      ]
-    },
-    {
-      "name": "NTLM Servers",
-      "nameSize": "medium",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 266,
-        "left": 760,
-        "width": 190,
-        "height": 114
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "metricSelector": "active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count",
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "singleValueSettings": {
-          "showTrend": false,
-          "showSparkLine": false,
-          "linkTileColorToThreshold": false
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=Inf&(active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count):limit(100):names"
-      ]
-    },
-    {
-      "name": "Kerberos Servers",
-      "nameSize": "medium",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 266,
-        "left": 950,
-        "width": 190,
-        "height": 114
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Single value",
-      "queries": [
-        {
-          "id": "A",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [],
-          "metricSelector": "active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count",
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "SINGLE_VALUE",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "visible": true
-          },
-          "yAxes": []
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "singleValueSettings": {
-          "showTrend": false,
-          "showSparkLine": false,
-          "linkTileColorToThreshold": false
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=Inf&(active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -2629,7 +2156,9 @@
       "queriesSettings": {
         "resolution": ""
       },
-      "metricExpressions": []
+      "metricExpressions": [
+        "resolution=null&(active-directory.dhcp.server.failover.bndupd.sent.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dhcp.server.failover.bndupd.received.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
     },
     {
       "name": "LDAP Binds",
@@ -4083,121 +3612,13 @@
       ]
     },
     {
-      "name": "NTLM Authentications",
-      "nameSize": "",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 3648,
-        "left": 0,
-        "width": 418,
-        "height": 266
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "active-directory.lsass.server.ntlm.authentications.count",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_lsa_ntlm"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=null&(active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):sort(value(auto,descending)):limit(20)):limit(100):names"
-      ]
-    },
-    {
       "name": "NTLM Binds",
       "nameSize": "",
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
         "top": 3648,
-        "left": 418,
+        "left": 0,
         "width": 418,
         "height": 266
       },
@@ -4299,120 +3720,12 @@
       ]
     },
     {
-      "name": "Kerberos Authentications",
-      "nameSize": "",
-      "tileType": "DATA_EXPLORER",
-      "configured": true,
-      "bounds": {
-        "top": 3952,
-        "left": 0,
-        "width": 418,
-        "height": 266
-      },
-      "tileFilter": {},
-      "isAutoRefreshDisabled": false,
-      "customName": "Data explorer results",
-      "queries": [
-        {
-          "id": "A",
-          "metric": "active-directory.lsass.server.kerberos.authentications.count",
-          "spaceAggregation": "AUTO",
-          "timeAggregation": "DEFAULT",
-          "splitBy": [
-            "dt.entity.wmi:com_dynatrace_extension_lsa_kerberos"
-          ],
-          "sortBy": "DESC",
-          "sortByDimension": "",
-          "filterBy": {
-            "nestedFilters": [],
-            "criteria": []
-          },
-          "limit": 20,
-          "rate": "NONE",
-          "enabled": true
-        }
-      ],
-      "visualConfig": {
-        "type": "GRAPH_CHART",
-        "global": {
-          "hideLegend": false
-        },
-        "rules": [
-          {
-            "matcher": "A:",
-            "properties": {
-              "color": "DEFAULT"
-            },
-            "seriesOverrides": []
-          }
-        ],
-        "axes": {
-          "xAxis": {
-            "displayName": "",
-            "visible": true
-          },
-          "yAxes": [
-            {
-              "displayName": "",
-              "visible": true,
-              "min": "AUTO",
-              "max": "AUTO",
-              "position": "LEFT",
-              "queryIds": [
-                "A"
-              ],
-              "defaultAxis": true
-            }
-          ]
-        },
-        "heatmapSettings": {
-          "yAxis": "VALUE"
-        },
-        "thresholds": [
-          {
-            "axisTarget": "LEFT",
-            "rules": [
-              {
-                "color": "#7dc540"
-              },
-              {
-                "color": "#f5d30f"
-              },
-              {
-                "color": "#dc172a"
-              }
-            ],
-            "queryId": "",
-            "visible": true
-          }
-        ],
-        "tableSettings": {
-          "isThresholdBackgroundAppliedToCell": false,
-          "hiddenColumns": []
-        },
-        "graphChartSettings": {
-          "connectNulls": true
-        },
-        "honeycombSettings": {
-          "showHive": true,
-          "showLegend": true,
-          "showLabels": false
-        }
-      },
-      "queriesSettings": {
-        "resolution": ""
-      },
-      "metricExpressions": [
-        "resolution=null&(active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):sort(value(auto,descending)):limit(20)):limit(100):names"
-      ]
-    },
-    {
       "name": "Database Adds",
       "nameSize": "",
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4256,
+        "top": 3952,
         "left": 0,
         "width": 418,
         "height": 266
@@ -4520,7 +3833,7 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4256,
+        "top": 3952,
         "left": 418,
         "width": 418,
         "height": 266
@@ -4628,7 +3941,7 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4256,
+        "top": 3952,
         "left": 836,
         "width": 418,
         "height": 266
@@ -4736,7 +4049,7 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4560,
+        "top": 4256,
         "left": 0,
         "width": 418,
         "height": 266
@@ -4870,7 +4183,7 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4560,
+        "top": 4256,
         "left": 418,
         "width": 418,
         "height": 266
@@ -5004,7 +4317,7 @@
       "tileType": "DATA_EXPLORER",
       "configured": true,
       "bounds": {
-        "top": 4560,
+        "top": 4256,
         "left": 836,
         "width": 418,
         "height": 266
@@ -5491,6 +4804,483 @@
       },
       "metricExpressions": [
         "resolution=Inf&(builtin:osservice.availability:filter(and(or(eq(\"dt.osservice.name\",Dnscache),eq(\"dt.osservice.name\",Netlogon),eq(\"dt.osservice.name\",NtFrs),eq(\"dt.osservice.name\",Kdc),eq(\"dt.osservice.name\",DFSR),eq(\"dt.osservice.name\",RpcSs),eq(\"dt.osservice.name\",W32Time),eq(\"dt.osservice.name\",gpsvc),eq(\"dt.osservice.name\",Dfs),eq(\"dt.osservice.name\",EventSystem),eq(\"dt.osservice.name\",DNS),eq(\"dt.osservice.name\",ADWS),eq(\"dt.osservice.name\",SamSs),eq(\"dt.osservice.name\",NTDS),eq(\"dt.osservice.name\",IsmServ)),or(eq(\"dt.osservice.status\",stopped)))):splitBy(\"dt.entity.host\",\"dt.entity.os:service\"):sort(value(auto,descending))):names"
+      ]
+    },
+    {
+      "name": "DHCP ACK",
+      "nameSize": "",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1824,
+        "left": 418,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "active-directory.dhcp.server.failover.bndack.received.persec",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "active-directory.dhcp.server.failover.bndack.sent.persec",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                "B"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false,
+          "hiddenColumns": []
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=null&(active-directory.dhcp.server.failover.bndack.received.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dhcp.server.failover.bndack.sent.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "DHCP Requests/Releases/Declines",
+      "nameSize": "",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 1824,
+        "left": 836,
+        "width": 418,
+        "height": 266
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Data explorer results",
+      "queries": [
+        {
+          "id": "A",
+          "metric": "active-directory.dhcp.server.requests.persec",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        },
+        {
+          "id": "B",
+          "metric": "active-directory.dhcp.server.declines.persec",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        },
+        {
+          "id": "C",
+          "metric": "active-directory.dhcp.server.releases.persec",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [
+            "dt.entity.wmi:com_dynatrace_extension_ad_dhcp"
+          ],
+          "sortBy": "DESC",
+          "sortByDimension": "",
+          "filterBy": {
+            "nestedFilters": [],
+            "criteria": []
+          },
+          "limit": 20,
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "GRAPH_CHART",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "B:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          },
+          {
+            "matcher": "C:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "displayName": "",
+            "visible": true
+          },
+          "yAxes": [
+            {
+              "displayName": "",
+              "visible": true,
+              "min": "AUTO",
+              "max": "AUTO",
+              "position": "LEFT",
+              "queryIds": [
+                "A",
+                "B",
+                "C"
+              ],
+              "defaultAxis": true
+            }
+          ]
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false,
+          "hiddenColumns": []
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=null&(active-directory.dhcp.server.requests.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dhcp.server.declines.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dhcp.server.releases.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+      ]
+    },
+    {
+      "name": "Domains",
+      "nameSize": "medium",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 152,
+        "left": 380,
+        "width": 190,
+        "height": 114
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT",
+              "seriesType": "STACKED_AREA"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": false,
+          "showSparkLine": false,
+          "linkTileColorToThreshold": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false,
+          "hiddenColumns": []
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count):limit(100):names"
+      ]
+    },
+    {
+      "name": "NTLM Servers",
+      "nameSize": "medium",
+      "tileType": "DATA_EXPLORER",
+      "configured": true,
+      "bounds": {
+        "top": 266,
+        "left": 950,
+        "width": 190,
+        "height": 114
+      },
+      "tileFilter": {},
+      "isAutoRefreshDisabled": false,
+      "customName": "Single value",
+      "queries": [
+        {
+          "id": "A",
+          "spaceAggregation": "AUTO",
+          "timeAggregation": "DEFAULT",
+          "splitBy": [],
+          "metricSelector": "active-directory.lsass.server.ntlm.binds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count",
+          "rate": "NONE",
+          "enabled": true
+        }
+      ],
+      "visualConfig": {
+        "type": "SINGLE_VALUE",
+        "global": {
+          "hideLegend": false
+        },
+        "rules": [
+          {
+            "matcher": "A:",
+            "properties": {
+              "color": "DEFAULT"
+            },
+            "seriesOverrides": []
+          }
+        ],
+        "axes": {
+          "xAxis": {
+            "visible": true
+          },
+          "yAxes": []
+        },
+        "heatmapSettings": {
+          "yAxis": "VALUE"
+        },
+        "singleValueSettings": {
+          "showTrend": false,
+          "showSparkLine": false,
+          "linkTileColorToThreshold": false
+        },
+        "thresholds": [
+          {
+            "axisTarget": "LEFT",
+            "rules": [
+              {
+                "color": "#7dc540"
+              },
+              {
+                "color": "#f5d30f"
+              },
+              {
+                "color": "#dc172a"
+              }
+            ],
+            "queryId": "",
+            "visible": true
+          }
+        ],
+        "tableSettings": {
+          "isThresholdBackgroundAppliedToCell": false,
+          "hiddenColumns": []
+        },
+        "graphChartSettings": {
+          "connectNulls": true
+        },
+        "honeycombSettings": {
+          "showHive": true,
+          "showLegend": true,
+          "showLabels": false
+        }
+      },
+      "queriesSettings": {
+        "resolution": ""
+      },
+      "metricExpressions": [
+        "resolution=Inf&(active-directory.lsass.server.ntlm.binds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count):limit(100):names"
       ]
     }
   ]
