@@ -1181,7 +1181,7 @@ screens:
       staticContent:
         breadcrumbs:
           - type: ENTITY_LIST_REF
-            entityType: type(wmi:com_dynatrace_extension_ad_domain)
+            entityType: wmi:com_dynatrace_extension_ad_domain
             displayName: Active Directory Domains
         showProblems: true
         showProperties: true
