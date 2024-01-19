@@ -31,6 +31,9 @@ Further reading: broaden your knowledge on Dynatrace extensions in the Dynatrace
 - [Manage Extensions 2.0 lifecycle](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/extension-lifecycle)
 - [Create a WMI extension](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/data-sources/wmi-extensions)
 
+**Note: breaking change. Metric names changed, affecting timeseries continuity and custom dashboards**
+Release 3 of the ActiveDirectory extension consolidates metrics from a number of previuously available public and custom extensions that targeted ActiveDirectory. Because of the breadth of consolidation (four extensions), we had to unify metric naming and thus define all metrics names from the ground up. We trust you will find them more self-explanatory and easier to use now, as the names are shorter. They are also aligned with the companion extension mentioned earlier.
+
 
 
 ## Details
