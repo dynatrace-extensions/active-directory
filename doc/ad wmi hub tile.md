@@ -32,7 +32,7 @@ Further reading: broaden your knowledge on Dynatrace extensions in the Dynatrace
 - [Create a WMI extension](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/data-sources/wmi-extensions)
 
 **Note: :red_circle: breaking change. Metric names changed, affecting timeseries continuity, alerts and custom dashboards**
-Release 3 of the ActiveDirectory extension consolidates metrics from a number of previously available public and custom extensions that targeted ActiveDirectory. Because of the breadth of consolidation (four extensions), we had to unify metric naming and thus define all metrics names from the ground up. We trust you will find them more self-explanatory and easier to use now, as the names are shorter. They are also aligned with the companion extension mentioned earlier.
+Release 3 of the ActiveDirectory extension consolidates metrics from a number of previously available public and custom extensions that targeted ActiveDirectory. Because of the breadth of consolidation (Active Directory services, AD Replication, versions for Extension Framework 1 and 2), we had to unify metric naming and thus define all metrics names from the ground up. We trust you will find them more self-explanatory and easier to use now, as the names are shorter. They are also aligned with the companion extension mentioned earlier.
 
 As a consequence:
 - :warning: When updating the extension through the in-product hub, you have to *add new configuration* instead of updating the previous one. Previous 2.x AD extension configuration can't be updated. Remember to remove the previous configuration, so metrics won;t be collected twice
