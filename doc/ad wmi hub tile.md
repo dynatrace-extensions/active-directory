@@ -32,6 +32,7 @@ Further reading: broaden your knowledge on Dynatrace extensions in the Dynatrace
 - [Create a WMI extension](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20/data-sources/wmi-extensions)
 
 **Note: :red_circle: breaking change. Metric names changed, affecting timeseries continuity, alerts and custom dashboards**
+
 Release 3 of the ActiveDirectory extension consolidates metrics from a number of previously available public and custom extensions that targeted ActiveDirectory. Because of the breadth of consolidation (Active Directory services, AD Replication, versions for Extension Framework 1 and 2), we had to unify metric naming and thus define all metrics names from the ground up. We trust you will find them more self-explanatory and easier to use now, as the names are shorter. They are also aligned with the companion extension mentioned earlier.
 
 As a consequence:
@@ -69,7 +70,9 @@ The Active Directory services extension is built on top of the Extension Framewo
 - Azure AD is not supported
 - Windows Server 2016, 2019 and 2022 are supported
 
-**Note on some metrics availability:** Windows Server 2022 brought a change to the metrics set returned by the `Win32_PerfRawData_Lsa_SecuritySystemWideStatistics` class. Because of this change, the AD extension is unable to report on "NTLM Authentications" and "Kerberos Authentications" metrics and these metrics have been removed from the extension. Consequently, these metrics won't be reported also when this extension is actuated or earlier Windows servers. More information on this change and reasons behind it can be found on [Microsoft KB pages](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c). 
+**Note on some metrics availability:** 
+
+Windows Server 2022 brought a change to the metrics set returned by the `Win32_PerfRawData_Lsa_SecuritySystemWideStatistics` class. Because of this change, the AD extension is unable to report on "NTLM Authentications" and "Kerberos Authentications" metrics and these metrics have been removed from the extension. Consequently, these metrics won't be reported also when this extension is actuated or earlier Windows servers. More information on this change and reasons behind it can be found on [Microsoft KB pages](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c). 
 
 
 
