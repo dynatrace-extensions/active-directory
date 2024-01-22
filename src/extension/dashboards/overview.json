@@ -100,7 +100,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.requests.persec",
+          "metric": "active-directory.dhcp.server.requests.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -118,7 +118,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.declines.persec",
+          "metric": "active-directory.dhcp.server.declines.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -136,7 +136,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.declines.persec",
+          "metric": "active-directory.dhcp.server.declines.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -265,7 +265,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.dhcp.server.requests.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):auto:splitBy():count",
+          "metricSelector": "active-directory.dhcp.server.requests.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dhcp\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -354,7 +354,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count",
+          "metricSelector": "active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -422,7 +422,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_domain\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -471,7 +471,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.sent.persec",
+          "metric": "active-directory.dhcp.server.failover.bndack.sent.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -489,7 +489,7 @@
         },
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.failover.bndack.received.persec",
+          "metric": "active-directory.dhcp.server.failover.bndack.received.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -609,7 +609,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec",
+          "metric": "active-directory.atq.server.atqestimatedqueuedelay.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -700,7 +700,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.atq.server.atqestimatedqueuedelay.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.atq.server.atqestimatedqueuedelay.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -821,7 +821,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):auto:splitBy():count",
+          "metricSelector": "active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -889,7 +889,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.server.host.cpu.logical.processors:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -912,7 +912,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):auto:splitBy():count",
+          "metricSelector": "active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -980,7 +980,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1003,7 +1003,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):auto:splitBy():count",
+          "metricSelector": "active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1071,7 +1071,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1094,7 +1094,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):auto:splitBy():count",
+          "metricSelector": "active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1162,7 +1162,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1185,7 +1185,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):auto:splitBy():count",
+          "metricSelector": "active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1253,7 +1253,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.atq.server.atqoutstandingqueuedrequests.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1276,7 +1276,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):auto:splitBy():count",
+          "metricSelector": "active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1344,7 +1344,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1367,7 +1367,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.network.login.logons.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_network\"):auto:splitBy():count",
+          "metricSelector": "active-directory.network.login.logons.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_network\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1435,7 +1435,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.network.login.logons.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_network\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.network.login.logons.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_network\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1458,7 +1458,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count",
+          "metricSelector": "active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1526,7 +1526,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1549,7 +1549,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count",
+          "metricSelector": "active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1617,7 +1617,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1640,7 +1640,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):auto:splitBy():count",
+          "metricSelector": "active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1708,7 +1708,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1731,7 +1731,7 @@
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [],
-          "metricSelector": "com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):auto:splitBy():count",
+          "metricSelector": "active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):auto:splitBy():count",
           "rate": "NONE",
           "enabled": true
         }
@@ -1799,7 +1799,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=Inf&(com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):auto:splitBy():count):limit(100):names"
+        "resolution=Inf&(active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):auto:splitBy():count):limit(100):names"
       ]
     },
     {
@@ -1819,7 +1819,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.server.host.cpu.time.idle",
+          "metric": "active-directory.server.host.cpu.time.idle",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -1907,7 +1907,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.server.host.cpu.time.idle:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.server.host.cpu.time.idle:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -1927,7 +1927,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.server.host.cpu.time.processor",
+          "metric": "active-directory.server.host.cpu.time.processor",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2015,7 +2015,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.server.host.cpu.time.processor:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.server.host.cpu.time.processor:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2035,7 +2035,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.server.host.cpu.time.user",
+          "metric": "active-directory.server.host.cpu.time.user",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2123,7 +2123,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.server.host.cpu.time.user:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.server.host.cpu.time.user:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_instance\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2143,7 +2143,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec",
+          "metric": "active-directory.dns.server.totalresponse.sent.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2231,7 +2231,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dns.server.totalresponse.sent.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dns.server.totalresponse.sent.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2251,7 +2251,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count",
+          "metric": "active-directory.dns.server.dynamicupdate.writtentodatabase.total.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2269,7 +2269,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count",
+          "metric": "active-directory.dns.server.dynamicupdate.rejected.total.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2287,7 +2287,7 @@
         },
         {
           "id": "C",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total",
+          "metric": "active-directory.dns.server.secureupdate.failure.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2391,7 +2391,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dns.server.dynamicupdate.writtentodatabase.total.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dns.server.dynamicupdate.rejected.total.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dns.server.secureupdate.failure.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dns.server.dynamicupdate.writtentodatabase.total.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dns.server.dynamicupdate.rejected.total.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dns.server.secureupdate.failure.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2411,7 +2411,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.caching.memory.total",
+          "metric": "active-directory.dns.server.caching.memory.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2429,7 +2429,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total",
+          "metric": "active-directory.dns.server.databasenode.memory.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2447,7 +2447,7 @@
         },
         {
           "id": "C",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total",
+          "metric": "active-directory.dns.server.nbstat.memory.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2465,7 +2465,7 @@
         },
         {
           "id": "D",
-          "metric": "com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total",
+          "metric": "active-directory.dns.server.tcpmessage.memory.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2577,7 +2577,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dns.server.databasenode.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dns.server.nbstat.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dns.server.tcpmessage.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dns.server.caching.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dns.server.databasenode.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dns.server.nbstat.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dns.server.tcpmessage.memory.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dns\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2597,7 +2597,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.sent.persec",
+          "metric": "active-directory.dhcp.server.failover.bndupd.sent.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2615,7 +2615,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dhcp.server.failover.bndupd.received.persec",
+          "metric": "active-directory.dhcp.server.failover.bndupd.received.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2739,7 +2739,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec",
+          "metric": "active-directory.ldap.server.ldapbindtime.binds.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2757,7 +2757,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.ldap.server.ldapsuccessfulbinds.persec",
+          "metric": "active-directory.ldap.server.ldapsuccessfulbinds.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2863,7 +2863,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.ldap.server.ldapsuccessfulbinds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.ldap.server.ldapbindtime.binds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.ldap.server.ldapsuccessfulbinds.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2883,7 +2883,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec",
+          "metric": "active-directory.ldap.server.ldapwrites.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -2974,7 +2974,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.ldap.server.ldapwrites.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.ldap.server.ldapwrites.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -2994,7 +2994,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total",
+          "metric": "active-directory.ldap.server.ldapclientsessions.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3082,7 +3082,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.ldap.server.ldapclientsessions.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.ldap.server.ldapclientsessions.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_ldap\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3102,7 +3102,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.atq.server.atqthreadsldap.total",
+          "metric": "active-directory.atq.server.atqthreadsldap.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3120,7 +3120,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.atq.server.atqthreadstotal.total",
+          "metric": "active-directory.atq.server.atqthreadstotal.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3222,7 +3222,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.atq.server.atqthreadsldap.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.atq.server.atqthreadstotal.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.atq.server.atqthreadsldap.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.atq.server.atqthreadstotal.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3242,7 +3242,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec",
+          "metric": "active-directory.atq.server.atqrequestlatency.persec",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3330,7 +3330,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.atq.server.atqrequestlatency.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.atq.server.atqrequestlatency.persec:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_atq\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3350,7 +3350,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried",
+          "metric": "active-directory.dfs.server.replicatedfolders.fileinstalls.retried",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3441,7 +3441,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.fileinstalls.retried:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dfs.server.replicatedfolders.fileinstalls.retried:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3461,7 +3461,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped",
+          "metric": "active-directory.dfs.server.replicatedfolders.updates.dropped",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3552,7 +3552,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.updates.dropped:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dfs.server.replicatedfolders.updates.dropped:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3572,7 +3572,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total",
+          "metric": "active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3660,7 +3660,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dfs\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3680,7 +3680,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total",
+          "metric": "active-directory.dra.server.drasynchrequestssuccessful.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3698,7 +3698,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total",
+          "metric": "active-directory.dra.server.drasynchrequestsmade.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3794,7 +3794,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3814,7 +3814,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total",
+          "metric": "active-directory.dra.server.drasynchrequestssuccessful.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3902,7 +3902,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -3922,7 +3922,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total",
+          "metric": "active-directory.dra.server.drasynchrequestssuccessful.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -3940,7 +3940,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total",
+          "metric": "active-directory.dra.server.drasynchrequestsmade.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4036,7 +4036,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4056,7 +4056,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total",
+          "metric": "active-directory.dra.server.drasynchrequestssuccessful.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4074,7 +4074,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total",
+          "metric": "active-directory.dra.server.drasynchrequestsmade.total",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4170,7 +4170,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.dra.server.drasynchrequestssuccessful.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.dra.server.drasynchrequestsmade.total:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_dra\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4190,7 +4190,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count",
+          "metric": "active-directory.lsass.server.ntlm.authentications.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4278,7 +4278,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.server.ntlm.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4298,7 +4298,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count",
+          "metric": "active-directory.lsass.server.ntlm.binds.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4386,7 +4386,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.server.ntlm.binds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.server.ntlm.binds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_ntlm\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4406,7 +4406,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count",
+          "metric": "active-directory.lsass.server.kerberos.authentications.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4494,7 +4494,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.server.kerberos.authentications.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_kerberos\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4514,7 +4514,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.database.adds.persec.count",
+          "metric": "active-directory.database.adds.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4602,7 +4602,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.database.adds.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4622,7 +4622,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.database.modifies.persec.count",
+          "metric": "active-directory.database.modifies.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4710,7 +4710,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.database.modifies.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.database.modifies.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4730,7 +4730,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.database.deletes.persec.count",
+          "metric": "active-directory.database.deletes.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4818,7 +4818,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.database.deletes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.database.deletes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_ad_db\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4838,7 +4838,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count",
+          "metric": "active-directory.lsass.esent.database.io.reads.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4856,7 +4856,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count",
+          "metric": "active-directory.lsass.esent.database.io.writes.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4952,7 +4952,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.esent.database.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.lsass.esent.database.io.writes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -4972,7 +4972,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.latency.avg.count",
+          "metric": "active-directory.lsass.esent.database.io.reads.latency.avg.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -4990,7 +4990,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.latency.avg.count",
+          "metric": "active-directory.lsass.esent.database.io.writes.latency.avg.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -5086,7 +5086,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.esent.database.io.reads.latency.avg.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.lsass.esent.database.io.writes.latency.avg.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.esent.database.io.reads.latency.avg.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.lsass.esent.database.io.writes.latency.avg.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
@@ -5106,7 +5106,7 @@
       "queries": [
         {
           "id": "A",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.persec.count",
+          "metric": "active-directory.lsass.esent.log.io.reads.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -5124,7 +5124,7 @@
         },
         {
           "id": "B",
-          "metric": "com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.persec.count",
+          "metric": "active-directory.lsass.esent.log.io.writes.persec.count",
           "spaceAggregation": "AUTO",
           "timeAggregation": "DEFAULT",
           "splitBy": [
@@ -5220,7 +5220,7 @@
         "resolution": ""
       },
       "metricExpressions": [
-        "resolution=null&(com.dynatrace.extension.active-directory.lsass.esent.log.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(com.dynatrace.extension.active-directory.lsass.esent.log.io.writes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
+        "resolution=null&(active-directory.lsass.esent.log.io.reads.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names,(active-directory.lsass.esent.log.io.writes.persec.count:splitBy(\"dt.entity.wmi:com_dynatrace_extension_lsa_esent\"):sort(value(auto,descending)):limit(20)):limit(100):names"
       ]
     },
     {
