@@ -22,8 +22,9 @@ This is foundational extension for AD monitoring and there is a companion [Activ
 Simply activate this extension using the in-product Dynatrace Hub. 
 - In the extension configuration, enable it on your Active Directory hosts
 - You may choose which feature sets you want to activate.
-  - Disable feature sets that are not relevant to your environment. For example, if your AD server does not serve DHCP - disable the DHCP feature set
-  - This way you will avoid errors reported in the extension log, when the extension will try to retrieve metrics that are not available
+  - Disable feature sets that are not relevant to your environment.
+  - This way you will avoid errors reported in the extension log, when the extension will try to retrieve metrics that are not available.
+  - See Q&A section for more details.
 
 Further reading: broaden your knowledge on Dynatrace extensions in the Dynatrace Documentation:
 - [Extensions 2.0 overview](https://www.dynatrace.com/support/help/extend-dynatrace/extensions20)
@@ -94,8 +95,11 @@ DDU cost above does not include any possible Log events or Custom events trigger
 
 ### Q: I see this extension failing with an Error status in my environment?
 
-A: Verify whether you have DHCP service running on your AD server. If it is not running - disable DHCP feature set in the extension configuration.
-
+A: Verify whether you have specific services running on your AD server. If a service is not running - disable feature set describing that service in the extension configuration. Example error text you may encounter: 
+```
+**Cannot execute query: DHCPServerv6 on device ******** err:Exception occurred. (Invalid class )**
+```
+means you should disable the DHCPv6 feature set because your AD server does not run DHCPv6 service, so extension won't be able to obtain metrics for this service.
 
 
 ## Documentation link
