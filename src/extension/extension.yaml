@@ -1353,13 +1353,13 @@ screens:
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dns"
             conditions:
-              - "extensionConfigured|extensionId=<%=extensionName%>|featureSets=dns"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dns"
               - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dns),fromRelationships.isChildOf($(entityConditions))"
           - type: MESSAGE
             key: "wmi_ad_dc_dns_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dns"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dns"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dhcp"
             conditions:
@@ -1368,8 +1368,8 @@ screens:
             key: "wmi_ad_dc_dhcp_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dhcp"
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dhcpv6"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcp"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcpv6"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dfs"
             conditions:
@@ -1378,8 +1378,8 @@ screens:
             key: "wmi_ad_dc_dfs_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dfsconnections"
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dfsfolders"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsconnections"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsfolders"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ldap"
             conditions:
@@ -1388,7 +1388,7 @@ screens:
             key: "wmi_ad_dc_ldap_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=ldap"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ldap"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_atq"
             conditions:
@@ -1397,7 +1397,7 @@ screens:
             key: "wmi_ad_dc_atq_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=atq"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=atq"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dra"
             conditions:
@@ -1406,7 +1406,7 @@ screens:
             key: "wmi_ad_dc_dra_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=dra"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dra"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_network"
             conditions:
@@ -1415,7 +1415,7 @@ screens:
             key: "wmi_ad_dc_network_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=network"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=network"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ad_db"
             conditions:
@@ -1424,7 +1424,7 @@ screens:
             key: "wmi_ad_dc_db_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=database-ad"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=database-ad"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_lsa_esent"
             conditions:
@@ -1433,7 +1433,7 @@ screens:
             key: "wmi_ad_dc_lsa_esent_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=esent-database-lsa"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=esent-database-lsa"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ntlm"
             conditions:
@@ -1442,7 +1442,7 @@ screens:
             key: "wmi_ad_dc_ntlm_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=<%=extensionName%>|featureSets=ntlm"
+              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ntlm"
           - type: CHART_GROUP
             key: "wmi_ad_dc_host"
           - type: "ENTITIES_LIST"
