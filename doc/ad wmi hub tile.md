@@ -13,7 +13,7 @@ This Dynatrace extension leverages the WMI protocol to gather all relevant data 
 - Monitor AD Network adapters and AD/LSA database
 - Receive alerts based on anomalies detected in AD KPI values and trends 
 
-**This extension has a companion**
+**This extension has a companion:**
 This is foundational extension for AD monitoring and there is a companion [Active Directory extended monitoring](https://www.dynatrace.com/hub/detail/active-directory-extended-monitoring/) extension available, which supplements the solution with several key metrics, for a complete AD observability pack. **For best results, activate both extensions in your environment.**
 
 
@@ -38,11 +38,11 @@ Release 3 of the ActiveDirectory extension consolidates metrics from a number of
 
 As a consequence:
 - When updating the [Active Directory services](https://www.dynatrace.com/hub/detail/active-directory-services/?query=actie+directory&filter=all) extension through the in-product hub, you have to `add new configuration` instead of updating the previous one. Previous 2.x AD extension configuration can't be updated. Remember to remove the previous configuration, so metrics won't be collected twice
-- `Revisit any metric alerts` of dashboards you've created using AD metrics. You need to replace previously used metrics with the new ones, as their names and IDs changed
+- `Revisit any metric alerts` and dashboards you've created using AD metrics. You need to replace previously used metrics with the new ones, as their names and IDs changed
 - If looking to update [Microsoft Active Directory replication](https://www.dynatrace.com/hub/detail/microsoft-active-directory-replication/?query=actie+directory&filter=all#overview) extension - the update comes as an integral part of the companion [Active Directory extended monitoring](https://www.dynatrace.com/hub/detail/active-directory-extended-monitoring/) extension. In the other words - `remove` [Microsoft Active Directory replication](https://www.dynatrace.com/hub/detail/microsoft-active-directory-replication/?query=actie+directory&filter=all#overview) and `start using` [Active Directory extended monitoring](https://www.dynatrace.com/hub/detail/active-directory-extended-monitoring/) instead.
 
 ## Details
-The Active Directory services extension is built on top of the Extension Framework 2.0 and uses WMI to obtain metrics. Therefore, this extension data set is limited to KPIs available to the WMI queries. .
+The Active Directory services extension is built on top of the Extension Framework 2.0 and uses WMI to obtain metrics. Therefore, this extension data set is limited to KPIs available to the WMI queries.
 
 **The extension package contains:**
 - WMI data source configuration
@@ -73,7 +73,7 @@ The Active Directory services extension is built on top of the Extension Framewo
 
 **Note on some metrics availability:** 
 
-Windows Server 2022 brought a change to the metrics set returned by the `Win32_PerfRawData_Lsa_SecuritySystemWideStatistics` class. Because of this change, the AD extension is unable to report on "NTLM Authentications" and "Kerberos Authentications" metrics and these metrics have been removed from the extension. Consequently, these metrics won't be reported also when this extension is actuated or earlier Windows servers. More information on this change and reasons behind it can be found on [Microsoft KB pages](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c). 
+Windows Server 2022 brought a change to the metrics set returned by the `Win32_PerfRawData_Lsa_SecuritySystemWideStatistics` class. Because of this change, the AD extension is unable to report on "NTLM Authentications" and "Kerberos Authentications" metrics and these metrics have been removed from the extension. Consequently, these metrics won't be reported also when this extension is activated on earlier Windows servers. More information on this change and reasons behind it can be found on [Microsoft KB pages](https://support.microsoft.com/en-us/topic/kb5004442-manage-changes-for-windows-dcom-server-security-feature-bypass-cve-2021-26414-f1400b52-c141-43d2-941e-37ed901c769c). 
 
 
 
