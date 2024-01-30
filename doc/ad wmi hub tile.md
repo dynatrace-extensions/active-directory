@@ -51,9 +51,6 @@ The Active Directory services extension is built on top of the Extension Framewo
 - topology definition 
 - entity extraction rules
 
-**More information**
-...TBA... blog post
-
 **Further information about the extension can be found in the Dynatrace Product News Blog:**
 - [Extend Dynatrace automation and AI capabilities more easily than ever](https://www.dynatrace.com/news/blog/extend-dynatrace-automation-and-ai-capabilities-more-easily-than-ever/)
 - [Leverage WMI to enable full observability of Windows Hosts and services to monitor health and improve performance.](https://www.dynatrace.com/news/blog/leverage-wmi-to-enable-full-observability-and-monitor-performance-of-windows-hosts-and-services/)
