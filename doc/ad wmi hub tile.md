@@ -81,15 +81,13 @@ Windows Server 2022 brought a change to the metrics set returned by the `Win32_P
 
 ### Q: What is the DDU Consumption of this extension?
 
-A: The formula for DDU consumption of the extension is:
+A: An estimated formula for DDU consumption of the extension is:
 
 ```
- ( 10
-+
- )  * 525.6 DDUs/year
+92 * number of Domain Controllers * 525.6 DDUs/year
 ```
 
-Typical consumption for a single-domain AD server, hosting one DHCP server and one LDAP instance, amounts to `47,304 DDUs/year`
+Typical consumption for a single-domain AD server, hosting one DHCP server and one LDAP instance, amounts to `48,355 DDUs/year`. It may be slightly lower if you disable some feature sets in the extension configuration. Compare number of metrics provided in specific feature sets.
 
 DDU cost above does not include any possible Log events or Custom events triggered by the extension. For more information on this, please visit the [DDU log event cost](https://www.dynatrace.com/support/help/manage/subscriptions-and-licensing/monitoring-consumption-classic/davis-data-units/log-monitoring-consumption) and [DDU custom event cost](https://www.dynatrace.com/support/help/manage/subscriptions-and-licensing/monitoring-consumption-classic/davis-data-units/ddu-events) pages.
 
