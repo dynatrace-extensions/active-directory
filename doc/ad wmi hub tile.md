@@ -95,7 +95,7 @@ A: Verify whether you have specific services running on your AD server. If a ser
 ```
 means you should disable the DHCPv6 feature set because your AD server does not run DHCPv6 service, so extension won't be able to obtain metrics for this service.
 
-### Q: You advice to activate the extension locally, but I see that remote activation is still possible?
+### Q: You advise to activate the extension locally, but I see that remote activation is still possible?
 
 A: Currently all WMI-based extensions can be activated either locally or remotely. Although Remote activation is technically supported, it may be challenging to arrive at the proper set of the remote user privileges required to access AD host WMI store over the network. 
 
