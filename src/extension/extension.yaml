@@ -1,6 +1,6 @@
 name: com.dynatrace.extension.<%=extensionName%>
 version: <%=version%>
-minDynatraceVersion: 1.281.0
+minDynatraceVersion: 1.282.0
 author:
   name: Dynatrace
 
@@ -482,10 +482,10 @@ wmi:
       minutes: 1
     dimensions:
       - key: host
-        value: this:device.host
+        value: column:Name
       - key: domain
         value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: CPU Perf
       query: SELECT Name, PercentProcessorTime, PercentIdleTime, PercentUserTime FROM Win32_PerfFormattedData_PerfOS_Processor WHERE Name LIKE '_Total'
@@ -518,10 +518,10 @@ wmi:
       minutes: 1
     dimensions:
       - key: host
-        value: this:device.host
+        value: column:Name
       - key: domain
         value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: DNS
       query: SELECT Name, CachingMemory, DatabaseNodeMemory, NbstatMemory, TCPMessageMemory, DynamicUpdateReceived, DynamicUpdateRejected, DynamicUpdateTimeOuts, DynamicUpdateWrittentoDatabase, DynamicUpdateNoOperationPersec, DynamicUpdateReceivedPersec, DynamicUpdateWrittentoDatabasePersec, RecursiveQueriesPersec, RecursiveQueryFailurePersec, RecursiveTimeOutPersec, SecureUpdateReceived, SecureUpdateFailure, SecureUpdateReceivedPersec, TCPResponseSentPersec, TotalQueryReceivedPersec, TotalResponseSentPersec, UDPQueryReceivedPersec, UDPResponseSentPersec, UnmatchedResponsesReceived, ZoneTransferFailure, ZoneTransferSuccess, RecursiveQueries, DynamicUpdateQueued, TotalQueryReceived, TotalResponseSent FROM Win32_PerfFormattedData_DNS_DNS
@@ -598,10 +598,10 @@ wmi:
       minutes: 1
     dimensions:
       - key: host
-        value: this:device.host
+        value: column:Name
       - key: domain
         value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
       - subgroup: DHCPServer
         query: SELECT Name, RequestsPersec, ReleasesPersec, DeclinesPersec, FailoverBndAckreceivedPersec, FailoverBndAcksentPersec, FailoverBndUpdDropped, FailoverBndUpdpendinginoutboundqueue, FailoverBndUpdreceivedPersec, FailoverBndUpdsentPersec FROM Win32_PerfFormattedData_dhcpserver_DHCPServer
@@ -673,10 +673,10 @@ wmi:
       minutes: 1
     dimensions:
       - key: host
-        value: this:device.host
+        value: column:Name
       - key: domain
         value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
       - subgroup: DFSReplicatedFolders
         query: SELECT Name, ConflictSpaceInUse, DeletedSpaceInUse, StagingSpaceInUse, UpdatesDropped, FileInstallsRetried FROM Win32_PerfFormattedData_dfsr_DFSReplicatedFolders
@@ -713,10 +713,10 @@ wmi:
       minutes: 1
     dimensions:
     - key: host
-      value: this:device.host
+      value: column:Name
     - key: domain
       value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: Active Directory DB
       query: select Name, DatabaseaddsPersec, DatabasedeletesPersec, DatabasemodifysPersec, DatabaserecyclesPersec from Win32_PerfFormattedData_NTDS_NTDS
@@ -773,10 +773,10 @@ wmi:
       minutes: 1
     dimensions:
     - key: host
-      value: this:device.host
+      value: column:Name
     - key: domain
       value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: ATQ
       query: SELECT Name, ATQOutstandingQueuedRequests, ATQEstimatedQueueDelay, ATQRequestLatency, ATQThreadsLDAP, ATQThreadsOther, ATQThreadsTotal FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
@@ -802,10 +802,10 @@ wmi:
       minutes: 1
     dimensions:
     - key: host
-      value: this:device.host
+      value: column:Name
     - key: domain
       value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: DRA
       query: SELECT Name, DRASyncRequestsSuccessful, DRASyncRequestsMade FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
@@ -823,10 +823,10 @@ wmi:
       minutes: 1
     dimensions:
     - key: host
-      value: this:device.host
+      value: column:Name
     - key: domain
       value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: Network Login
       query: SELECT Name, NumberOfLogons FROM Win32_NetworkLoginProfile
@@ -856,10 +856,10 @@ wmi:
       minutes: 1
     dimensions:
     - key: host
-      value: this:device.host
+      value: column:Name
     - key: domain
       value: column:Domain
-    query: SELECT Domain from Win32_ComputerSystem
+    query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
       - subgroup: NTLM
         query: select Name, NTLMBindsPersec from Win32_PerfRawData_DirectoryServices_DirectoryServices
@@ -893,37 +893,37 @@ topology:
       displayName: Active Directory
       enabled: true
       rules:
-      - idPattern: wmi_ad_{dt.entity.host}
+      - idPattern: wmi_ad_{host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory)
         requiredDimensions: []
-        instanceNamePattern: Active Directory on {host.name}
+        instanceNamePattern: Active Directory on {host}
     - name: wmi:com_dynatrace_extension_ad_dns
       displayName: Active Directory DNS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dns_{dt.entity.host}
+      - idPattern: wmi_ad_dns_{host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dns)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DNS on {host.name}
+        instanceNamePattern: Active Directory DNS on {host}
     - name: wmi:com_dynatrace_extension_ad_dhcp
       displayName: Active Directory DHCP
       enabled: true
       rules:
-      - idPattern: wmi_ad_dhcp_{dt.entity.host}
+      - idPattern: wmi_ad_dhcp_{host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dhcp)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DHCP on {host.name}
+        instanceNamePattern: Active Directory DHCP on {host}
     - name: wmi:com_dynatrace_extension_ad_dfs
       displayName: Active Directory DFS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dfs_{dt.entity.host}
+      - idPattern: wmi_ad_dfs_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dfs)
@@ -932,52 +932,52 @@ topology:
             key: wmi_ad_dfs_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host.name}
+        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host}
     - name: wmi:com_dynatrace_extension_ad_ldap
       displayName: Active Directory LDAP
       enabled: true
       rules:
-      - idPattern: wmi_ad_ldap_{dt.entity.host}
+      - idPattern: wmi_ad_ldap_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.ldap)
         requiredDimensions: []
-        instanceNamePattern: Active Directory LDAP on {host.name}
+        instanceNamePattern: Active Directory LDAP on {host}
     - name: wmi:com_dynatrace_extension_ad_atq
       displayName: Active Directory ATQ
       enabled: true
       rules:
-      - idPattern: wmi_ad_atq_{dt.entity.host}
+      - idPattern: wmi_ad_atq_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.atq)
         requiredDimensions: []
-        instanceNamePattern: Active Directory ATQ on {host.name}
+        instanceNamePattern: Active Directory ATQ on {host}
     - name: wmi:com_dynatrace_extension_ad_dra
       displayName: Active Directory DRA
       enabled: true
       rules:
-      - idPattern: wmi_ad_dra_{dt.entity.host}
+      - idPattern: wmi_ad_dra_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dra)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DRA on {host.name}
+        instanceNamePattern: Active Directory DRA on {host}
     - name: wmi:com_dynatrace_extension_ad_network
       displayName: Active Directory Network
       enabled: true
       rules:
-      - idPattern: wmi_ad_network_{dt.entity.host}
+      - idPattern: wmi_ad_network_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.network)
         requiredDimensions: []
-        instanceNamePattern: Active Directory Network on {host.name}
+        instanceNamePattern: Active Directory Network on {host}
     - name: wmi:com_dynatrace_extension_lsa_ntlm
       displayName: Local Security Authority NTLM
       enabled: true
       rules:
-      - idPattern: wmi_lsass_ntlm_{dt.entity.host}
+      - idPattern: wmi_lsass_ntlm_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.server.ntlm)
@@ -986,22 +986,22 @@ topology:
             key: wmi_lsass_ntlm_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Local Security Authority NTLM on {host.name}
+        instanceNamePattern: Local Security Authority NTLM on {host}
     - name: wmi:com_dynatrace_extension_ad_db
       displayName: Active Directory Database
       enabled: true
       rules:
-      - idPattern: wmi_ad_db_{dt.entity.host}
+      - idPattern: wmi_ad_db_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.database)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DB on {host.name}
+        instanceNamePattern: Active Directory DB on {host}
     - name: wmi:com_dynatrace_extension_lsa_esent
       displayName: Local Security Authority ESENT Database
       enabled: true
       rules:
-      - idPattern: wmi_lsass_esent_{dt.entity.host}
+      - idPattern: wmi_lsass_esent_{host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.esent)
@@ -1010,7 +1010,7 @@ topology:
             key: wmi_lsass_esent_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Local Security Authority ESENT DB on {host.name}
+        instanceNamePattern: Local Security Authority ESENT DB on {host}
 
   relationships:
     - enabled: true
