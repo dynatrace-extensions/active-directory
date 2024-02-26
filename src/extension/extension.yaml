@@ -893,37 +893,37 @@ topology:
       displayName: Active Directory
       enabled: true
       rules:
-      - idPattern: wmi_ad_{host}
+      - idPattern: wmi_ad_{dt.entity.host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory)
         requiredDimensions: []
-        instanceNamePattern: Active Directory on {host}
+        instanceNamePattern: Active Directory on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dns
       displayName: Active Directory DNS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dns_{host}
+      - idPattern: wmi_ad_dns_{dt.entity.host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dns)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DNS on {host}
+        instanceNamePattern: Active Directory DNS on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dhcp
       displayName: Active Directory DHCP
       enabled: true
       rules:
-      - idPattern: wmi_ad_dhcp_{host}
+      - idPattern: wmi_ad_dhcp_{dt.entity.host}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dhcp)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DHCP on {host}
+        instanceNamePattern: Active Directory DHCP on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dfs
       displayName: Active Directory DFS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dfs_{host}
+      - idPattern: wmi_ad_dfs_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dfs)
@@ -932,52 +932,52 @@ topology:
             key: wmi_ad_dfs_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host}
+        instanceNamePattern: Active Directory DFS {dfs.server.name} on {host.name}
     - name: wmi:com_dynatrace_extension_ad_ldap
       displayName: Active Directory LDAP
       enabled: true
       rules:
-      - idPattern: wmi_ad_ldap_{host}
+      - idPattern: wmi_ad_ldap_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.ldap)
         requiredDimensions: []
-        instanceNamePattern: Active Directory LDAP on {host}
+        instanceNamePattern: Active Directory LDAP on {host.name}
     - name: wmi:com_dynatrace_extension_ad_atq
       displayName: Active Directory ATQ
       enabled: true
       rules:
-      - idPattern: wmi_ad_atq_{host}
+      - idPattern: wmi_ad_atq_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.atq)
         requiredDimensions: []
-        instanceNamePattern: Active Directory ATQ on {host}
+        instanceNamePattern: Active Directory ATQ on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dra
       displayName: Active Directory DRA
       enabled: true
       rules:
-      - idPattern: wmi_ad_dra_{host}
+      - idPattern: wmi_ad_dra_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dra)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DRA on {host}
+        instanceNamePattern: Active Directory DRA on {host.name}
     - name: wmi:com_dynatrace_extension_ad_network
       displayName: Active Directory Network
       enabled: true
       rules:
-      - idPattern: wmi_ad_network_{host}
+      - idPattern: wmi_ad_network_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.network)
         requiredDimensions: []
-        instanceNamePattern: Active Directory Network on {host}
+        instanceNamePattern: Active Directory Network on {host.name}
     - name: wmi:com_dynatrace_extension_lsa_ntlm
       displayName: Local Security Authority NTLM
       enabled: true
       rules:
-      - idPattern: wmi_lsass_ntlm_{host}
+      - idPattern: wmi_lsass_ntlm_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.server.ntlm)
@@ -986,22 +986,22 @@ topology:
             key: wmi_lsass_ntlm_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Local Security Authority NTLM on {host}
+        instanceNamePattern: Local Security Authority NTLM on {host.name}
     - name: wmi:com_dynatrace_extension_ad_db
       displayName: Active Directory Database
       enabled: true
       rules:
-      - idPattern: wmi_ad_db_{host}
+      - idPattern: wmi_ad_db_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.database)
         requiredDimensions: []
-        instanceNamePattern: Active Directory DB on {host}
+        instanceNamePattern: Active Directory DB on {host.name}
     - name: wmi:com_dynatrace_extension_lsa_esent
       displayName: Local Security Authority ESENT Database
       enabled: true
       rules:
-      - idPattern: wmi_lsass_esent_{host}
+      - idPattern: wmi_lsass_esent_{dt.entity.host}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.esent)
@@ -1010,7 +1010,7 @@ topology:
             key: wmi_lsass_esent_name
             displayName: Name
         requiredDimensions: []
-        instanceNamePattern: Local Security Authority ESENT DB on {host}
+        instanceNamePattern: Local Security Authority ESENT DB on {host.name}
 
   relationships:
     - enabled: true
