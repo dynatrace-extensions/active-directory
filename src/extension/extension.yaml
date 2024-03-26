@@ -1353,13 +1353,13 @@ screens:
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dns"
             conditions:
-              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dns"
               - "relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dns),fromRelationships.isChildOf($(entityConditions))"
           - type: MESSAGE
             key: "wmi_ad_dc_dns_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dns"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dns),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dns"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dhcp"
             conditions:
@@ -1368,8 +1368,9 @@ screens:
             key: "wmi_ad_dc_dhcp_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcp"
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcpv6"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dhcp),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcp"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dhcpv6"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dfs"
             conditions:
@@ -1378,8 +1379,9 @@ screens:
             key: "wmi_ad_dc_dfs_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsconnections"
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsfolders"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dfs),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsconnections"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dfsfolders"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ldap"
             conditions:
@@ -1388,7 +1390,8 @@ screens:
             key: "wmi_ad_dc_ldap_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ldap"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_ldap),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ldap"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_atq"
             conditions:
@@ -1397,7 +1400,8 @@ screens:
             key: "wmi_ad_dc_atq_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=atq"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_atq),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=atq"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_dra"
             conditions:
@@ -1406,7 +1410,8 @@ screens:
             key: "wmi_ad_dc_dra_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dra"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_dra),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=dra"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_network"
             conditions:
@@ -1415,7 +1420,8 @@ screens:
             key: "wmi_ad_dc_network_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=network"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_network),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=network"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ad_db"
             conditions:
@@ -1424,7 +1430,8 @@ screens:
             key: "wmi_ad_dc_db_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=database-ad"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_ad_db),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=database-ad"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_lsa_esent"
             conditions:
@@ -1433,7 +1440,8 @@ screens:
             key: "wmi_ad_dc_lsa_esent_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=esent-database-lsa"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_esent),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=esent-database-lsa"
           - type: "ENTITIES_LIST"
             key: "wmi_ad_dc_ntlm"
             conditions:
@@ -1442,7 +1450,8 @@ screens:
             key: "wmi_ad_dc_ntlm_msg"
             width: FULL_SIZE
             conditions:
-              - "!extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ntlm"
+              - "!relatedEntity|entitySelectorTemplate=type(wmi:com_dynatrace_extension_lsa_ntlm),fromRelationships.isChildOf($(entityConditions))"
+              - "extensionConfigured|extensionId=com.dynatrace.extension.<%=extensionName%>|featureSets=ntlm"
           - type: CHART_GROUP
             key: "wmi_ad_dc_host"
           - type: "ENTITIES_LIST"
@@ -1756,58 +1765,53 @@ screens:
       - key: wmi_ad_dc_dns_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **DNS Service**. This can be enabled through the **dns** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **DNS Service** is unavailable, no DNS metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_dhcp_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **DHCP Service**. This can be enabled through the **dhcp** or **dhcpv6** feature sets in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **DHCP Service** is unavailable, no DHCP metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_dfs_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **DFS Service**. This can be enabled through the **dsfconnections** or **dfsfolders** feature sets in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **DFS Service** is unavailable, no DFS metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_ldap_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **LDAP Service**. This can be enabled through the **ldap** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **LDAP Service** is unavailable, no LDAP metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_atq_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **ATQ Service**. This can be enabled through the **atq** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **ATQ Service** is unavailable, no ATQ metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_dra_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **DRA Service**. This can be enabled through the **dra** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **DRA Service** is unavailable, no DRA metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_network_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **Network Services**. This can be enabled through the **network** feature set in your monitoring configuration.
-          theme: WARNING
-      - key: wmi_ad_dc_network_msg
-        type: MESSAGE
-        message:
-          text: You're missing out on insights into the **Network Services**. This can be enabled through the **network** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **Network Services** are unavailable, no network metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_db_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **AD Database**. This can be enabled through the **database-ad** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **AD Database** is unavailable, no database metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_lsa_esent_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **ESENT LSA Database**. This can be enabled through the **esent-database-lsa** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **ESENT LSA Database** is unavailable, no ESENT database metrics are being ingested and entities will not be created.
+          theme: INFO
       - key: wmi_ad_dc_ntlm_msg
         type: MESSAGE
         message:
-          text: You're missing out on insights into the **NTLM Service**. This can be enabled through the **ntlm** feature set in your monitoring configuration.
-          theme: WARNING
+          text: It looks like the **NTLM Service** is unavailable, no NTLM metrics are being ingested and entities will not be created.
+          theme: INFO
   - entityType: wmi:com_dynatrace_extension_ad_dhcp
     propertiesCard:
       properties:
