@@ -13,26 +13,31 @@ metrics:
       displayName: Used processor time
       description: Percent of used processor time
       unit: Percent
+      sourceEntityType: wmi:com_dynatrace_extension_ad_instance
   - key: active-directory.server.host.cpu.time.idle
     metadata:
       displayName: Idle processor time
       description: Percent of idle processor time
       unit: Percent
+      sourceEntityType: wmi:com_dynatrace_extension_ad_instance
   - key: active-directory.server.host.cpu.time.user
     metadata:
       displayName: User processor time
       description: Percent of user processor time
       unit: Percent
+      sourceEntityType: wmi:com_dynatrace_extension_ad_instance
   - key: active-directory.server.host.cpu.logical.processors
     metadata:
       displayName: Number of Logical Processors
       description: Number of Logical Processors
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_instance
   - key: active-directory.service.cpu.time
     metadata:
       displayName: Service processor time
       description: Percent of processor time spend on a service
       unit: Percent
+      sourceEntityType: wmi:com_dynatrace_extension_ad_instance
   - key: func:active-directory.dhcp.server.requests.persec.total
     query:
       metricSelector: '(active-directory.dhcp.server.requests.persec)+(active-directory.dhcp.server.v6.requests.persec)'
@@ -59,421 +64,505 @@ metrics:
       displayName: DNS caching memory
       description: Total caching memory used by DNS server
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.databasenode.memory.total
     metadata:
       displayName: DNS database node memory
       description: Total database node memory used by DNS server
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.nbstat.memory.total
     metadata:
       displayName: DNS Nbstat memory
       description: Total Nbstat memory used by DNS server
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.tcpmessage.memory.total
     metadata:
       displayName: DNS TCP message memory
       description: Total TCP message memory used by DNS server
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.received.total.count
     metadata:
       displayName: DNS dynamic update requests
       description: Total number of dynamic update requests received by the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.queued.total.count
     metadata:
       displayName: DNS dynamic update queued requests
       description: Total number of dynamic update requests queued by the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.recursive.queries
     metadata:
       displayName: DNS recursive queries
       description: Total number of recursive queries received by DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.totalquery.received
     metadata:
       displayName: DNS queries received
       description: Total number of queries received by DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.totalresponse.sent
     metadata:
       displayName: DNS reponses sent
       description: Total number of reponses sent by DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.rejected.total.count
     metadata:
       displayName: DNS rejected dynamic updates
       description: Total number of dynamic updates rejected by the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.timeouts.total.count
     metadata:
       displayName: DNS dynamic update timeouts
       description: Total number of dynamic update timeouts of the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.writtentodatabase.total.count
     metadata:
       displayName: DNS written dynamic updates
       description: Total number of dynamic updates written to the database by the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.nooperation.persec
     metadata:
       displayName: DNS empty dynamic update requests/s
       description: Average number of No-operation/Empty dynamic update requests per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.received.persec
     metadata:
       displayName: DNS dynamic update requests/s
       description: Average number of dynamic update requests received by the DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.dynamicupdate.writtentodatabase.persec
     metadata:
       displayName: DNS written dynamic updates/s
       description: Average number of dynamic updates written to the database by the DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.recursive.queries.persec
     metadata:
       displayName: DNS recursive queries/s
       description: Average number of recursive queries received by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.recursive.queryfailure.persec
     metadata:
       displayName: DNS recursive query failures/s
       description: Average number of recursive query failures per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.recursive.timeout.persec
     metadata:
       displayName: DNS recursive query timeouts/s
       description: Average number of recursive query sending timeouts per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.secureupdate.received.total
     metadata:
       displayName: DNS secure update requests
       description: Total number of secure update requests received by the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.secureupdate.failure.total
     metadata:
       displayName: DNS failed secure updates
       description: Total number of secure updates failed of the DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.secureupdate.received.persec
     metadata:
       displayName: DNS secure update requests/s
       description: Average number of secure update requests received by the DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.tcpresponse.sent.persec
     metadata:
       displayName: DNS TCP reponses/s
       description: Average number of TCP reponses sent by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.totalquery.received.persec
     metadata:
       displayName: DNS queries received/s
       description: Average number of queries received by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.totalresponse.sent.persec
     metadata:
       displayName: DNS reponses sent/s
       description: Average number of reponses sent by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.udpquery.received.persec
     metadata:
       displayName: DNS UDP queries received/s
       description: Average number of UDP queries received by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.udpresponse.sent.persec
     metadata:
       displayName: DNS UDP reponses sent/s
       description: Average number of UDP reponses sent by DNS server per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.unmatchedresponses.received.total
     metadata:
       displayName: DNS unmatched response packets received
       description: Total number of response packets received by the DNS server that do not match any outstanding remote query
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.zonetransfer.failure.total
     metadata:
       displayName: DNS failed zone transfers
       description: Total number of failed zone transfers of the master DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dns.server.zonetransfer.success.total
     metadata:
       displayName: DNS successful zone transfers
       description: Total number of successful zone transfers of the master DNS server
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dns
   - key: active-directory.dhcp.server.requests.persec
     metadata:
       displayName: DHCP received requests/s
       description: Rate of DHCP requests received by the DHCP server
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.releases.persec
     metadata:
       displayName: DHCP received releases/s
       description: Rate of DHCP releases received by the DHCP server
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.declines.persec
     metadata:
       displayName: DHCP received declines/s
       description: Rate of DHCP declines received by the DHCP server
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndack.received.persec
     metadata:
       displayName: DHCP failover ack messages received/s
       description: Number of DHCP failover Binding Ack messages received
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndack.sent.persec
     metadata:
       displayName: DHCP failover ack messages sent/s
       description: Number of DHCP failover Binding Ack messages sent
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndupd.dropped
     metadata:
       displayName: DHCP binding updates dropped
       description: Number of binding updates dropped
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndupd.pendinginoutbound.queue
     metadata:
       displayName: DHCP failover update pending messages
       description: Number of pending outbound DHCP failover Binding Update messages
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndupd.received.persec
     metadata:
       displayName: DHCP failover update messages received/s
       description: Number of DHCP failover Binding Update messages received
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.failover.bndupd.sent.persec
     metadata:
       displayName: DHCP failover update messages sent/s
       description: Number of DHCP failover Binding Update messages sent
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.renews.persec
     metadata:
       displayName: DHCP received renews/s v6
       description: Rate of DHCP renews received by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.releases.persec
     metadata:
       displayName: DHCP received releases/s v6
       description: Rate of DHCP releases received by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.declines.persec
     metadata:
       displayName: DHCP received declines/s v6
       description: Rate of DHCP declines recevied by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.requests.persec
     metadata:
       displayName: DHCP received requests/s v6
       description: Rate of DHCP requests received by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.solicits.persec
     metadata:
       displayName: DHCP received solicits/s v6
       description: Rate of DHCP solicits received by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dhcp.server.v6.rebinds.persec
     metadata:
       displayName: DHCP received rebinds/s v6
       description: Rate of DHCP rebinds received by the DHCP Server v6
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dhcp
   - key: active-directory.dfs.server.replicatedfolders.conflictspaceinuse.bytes.total
     metadata:
       displayName: DFS Replication conflict files size
       description: Total byte size of DFS replication service of conflict files
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicatedfolders.deletedspaceinuse.bytes.total
     metadata:
       displayName: DFS Replication deleted files size
       description: Total byte size of DFS replication service of the deleted files
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicatedfolders.stagingspaceinuse.bytes.total
     metadata:
       displayName: DFS Replication staging folder size
       description: Total byte size of DFS replication service of staging folder
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicatedfolders.updates.dropped
     metadata:
       displayName: DFS redundant file replication update records
       description: Number of redundant file replication update records
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicatedfolders.fileinstalls.retried
     metadata:
       displayName: DFS retried file installs
       description: Number of retried file installs
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicationconnections.bytesreceived.persec
     metadata:
       displayName: DFS received bytes/s
       description: Average number of received bytes per second
       unit: BytePerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicationconnections.bytesreceived.total
     metadata:
       displayName: DFS bytes received on connection
       description: Total number of bytes received on the connection
       unit: Byte
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicationconnections.filesreceived.total
     metadata:
       displayName: DFS files received on connection
       description: Number of files that were received on the connection
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.dfs.server.replicationqueue.count
     metadata:
       displayName: Domain Controller Replication Queue count
       description: The number of items in the AD Replication queue
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dfs
   - key: active-directory.ldap.server.ldapbindtime.binds.persec
     metadata:
       displayName: LDAP Binds
       description: Time spent to complete LDAP bindings
       unit: MilliSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapsuccessfulbinds.persec
     metadata:
       displayName: LDAP Successful Binds
       description: Successful binds per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapwrites.persec
     metadata:
       displayName: LDAP Writes per second
       description: The rate at which LDAP clients perform write operations
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapudpoperations.persec
     metadata:
       displayName: LDAP UDP Operations per second
       description: The number of User Datagram Protocol (UDP) operations that the LDAP server is processing per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapactivethreads.total
     metadata:
       displayName: LDAP Active threads total
       description: The current number of threads in use by the LDAP subsystem of the local directory service
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapclientsessions.total
     metadata:
       displayName: LDAP Client Sessions
       description: The number of sessions of connected LDAP clients
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.ldap.server.ldapsearches.persec
     metadata:
       displayName: LDAP Searches per second
       description: The number of search operations per second performed by LDAP clients
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_ldap
   - key: active-directory.atq.server.atqoutstandingqueuedrequests.total
     metadata:
       displayName: ATQ Outstanding queued requests total
       description: Current number of requests in the queue
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.atq.server.atqestimatedqueuedelay.persec
     metadata:
       displayName: ATQ Estimated queue delay
       description: How long a request has to wait in the queue
       unit: Second
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.atq.server.atqrequestlatency.persec
     metadata:
       displayName: ATQ Request latency
       description: Time it takes to produce a request
       unit: Second
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.atq.server.atqthreadsldap.total
     metadata:
       displayName: ATQ Threads LDAP total
       description: The number of threads used by the LDAP server as determined by LDAP policy
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.atq.server.atqthreadsother.total
     metadata:
       displayName: ATQ Threads Other total
       description: The number of threads used by the other services
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.atq.server.atqthreadstotal.total
     metadata:
       displayName: ATQ Threads total
       description: All Threads currently allocated
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_atq
   - key: active-directory.dra.server.drasynchrequestssuccessful.total
     metadata:
       displayName: DRA Successful synch requests total
       description: Number of successful DRA synchronization requests
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dra
   - key: active-directory.dra.server.drasynchrequestsmade.total
     metadata:
       displayName: DRA Synch requests total
       description: Number of total DRA synchronization requests made
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_dra
   - key: active-directory.lsass.server.ntlm.binds.persec.count
     metadata:
       displayName: NTLM Binds per second
       description: Average NTLM binds per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_network
   - key: active-directory.network.login.logons.count
     metadata:
       displayName: Network Login Profile logons
       description: Number of network logons on the network login profile
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_network
   - key: active-directory.network.logons.total.count
     metadata:
       displayName: Number of logons
       description: Number of network logons
       unit: Count
+      sourceEntityType: wmi:com_dynatrace_extension_ad_network
   - key: active-directory.network.logons.persec.count
     metadata:
       displayName: Logons per second
       description: Number of network logons per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_network
   - key: active-directory.database.adds.persec.count
     metadata:
       displayName: Database adds per second
       description: Number of Active Directory Database adds per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_db
   - key: active-directory.database.deletes.persec.count
     metadata:
       displayName: Database deletes per second
       description: Number of Active Directory Database deletes per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_db
   - key: active-directory.database.modifies.persec.count
     metadata:
       displayName: Database modifies per second
       description: Number of Active Directory Database modifies per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_db
   - key: active-directory.database.recycles.persec.count
     metadata:
       displayName: Database recycles per second
       description: Number of Active Directory Database recycles per second
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_ad_db
   - key: active-directory.lsass.esent.database.io.reads.persec.count
     metadata:
       displayName: ESENT Database I/O reads rate (Local Security Authority)
       description: Number of ESENT Database I/O reads per second for the Local Security Authority
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.database.io.writes.persec.count
     metadata:
       displayName: ESENT Database I/O writes rate (Local Security Authority)
       description: Number of ESENT Database I/O writes per second for the Local Security Authority
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.log.io.reads.persec.count
     metadata:
       displayName: ESENT Log I/O reads rate (Local Security Authority)
       description: Number of ESENT Database log I/O reads per second for the Local Security Authority
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.log.io.writes.persec.count
     metadata:
       displayName: ESENT Log I/O writes rate (Local Security Authority)
       description: Number of ESENT Database log I/O writes per second for the Local Security Authority
       unit: PerSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.database.io.reads.latency.avg.count
     metadata:
       displayName: ESENT Database I/O read latency (Local Security Authority)
       description: ESENT Database I/O read latency for the Local Security Authority
       unit: MilliSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.database.io.writes.latency.avg.count
     metadata:
       displayName: ESENT Database I/O write latency (Local Security Authority)
       description: ESENT Database I/O write latency for the Local Security Authority
       unit: MilliSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.log.io.reads.latency.avg.count
     metadata:
       displayName: ESENT Log I/O read latency (Local Security Authority)
       description: ESENT Log I/O read latency for the Local Security Authority
       unit: MilliSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
   - key: active-directory.lsass.esent.log.io.writes.latency.avg.count
     metadata:
       displayName: ESENT Log I/O writes latency (Local Security Authorityy)
       description: ESENT Log I/O writes latency for the Local Security Authority
       unit: MilliSecond
+      sourceEntityType: wmi:com_dynatrace_extension_lsa_esent
 
 wmi:
   - group: Host
@@ -897,6 +986,10 @@ topology:
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory)
+        attributes:
+          - key: host_name
+            displayName: Hostname
+            pattern: "{host}"
         requiredDimensions: []
         instanceNamePattern: Active Directory on {host.name}
     - name: wmi:com_dynatrace_extension_ad_dns
@@ -1334,6 +1427,9 @@ screens:
           relation:
             entitySelectorTemplate: type(host), toRelationships.runsOn($(entityConditions))
             displayName: Host
+        - type: ATTRIBUTE
+          attribute:
+            key: host_name
     detailsSettings:
       staticContent:
         breadcrumbs:
