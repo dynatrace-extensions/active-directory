@@ -737,7 +737,7 @@ wmi:
           - key: dhcp.server.name
             value: Name
       - subgroup: LDAP
-        query: SELECT Name, LDAPBindTime, LDAPSuccessfulBindsPersec, LDAPWritesPersec, LDAPUDPoperationsPersec, LDAPActiveThreads, LDAPClientSessions, LDAPSearchesPersec FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+        query: SELECT Name, LDAPBindTime, LDAPSuccessfulBindsPersec, LDAPWritesPersec, LDAPUDPoperationsPersec, LDAPActiveThreads, LDAPClientSessions, LDAPSearchesPersec FROM Win32_PerfFormattedData_DirectoryServices_DirectoryServices
         featureSet: ldap
         metrics:
           - key: active-directory.ldap.server.ldapbindtime.binds.persec
@@ -827,7 +827,7 @@ wmi:
         - key: db.server.name
           value: column:Name
     - subgroup: ESENT Local Security Authority
-      query: select Name, IODatabaseReadsPerSec, IODatabaseReadsAverageLatency, IODatabaseWritesPersec, IODatabaseWritesAverageLatency, IOLogReadsPersec, IOLogReadsAverageLatency, IOLogWritesPersec, IOLogWritesAverageLatency from Win32_PerfRawData_ESENT_Database where Name like 'lsass%'
+      query: select Name, IODatabaseReadsPerSec, IODatabaseReadsAverageLatency, IODatabaseWritesPersec, IODatabaseWritesAverageLatency, IOLogReadsPersec, IOLogReadsAverageLatency, IOLogWritesPersec, IOLogWritesAverageLatency from Win32_PerfFormattedData_ESENT_Database where Name like 'lsass%'
       featureSet: esent-database-lsa
       metrics:
         - key: active-directory.lsass.esent.database.io.reads.persec.count
@@ -868,7 +868,7 @@ wmi:
     query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: ATQ
-      query: SELECT Name, ATQOutstandingQueuedRequests, ATQEstimatedQueueDelay, ATQRequestLatency, ATQThreadsLDAP, ATQThreadsOther, ATQThreadsTotal FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+      query: SELECT Name, ATQOutstandingQueuedRequests, ATQEstimatedQueueDelay, ATQRequestLatency, ATQThreadsLDAP, ATQThreadsOther, ATQThreadsTotal FROM Win32_PerfFormattedData_DirectoryServices_DirectoryServices
       featureSet: atq
       metrics:
         - key: active-directory.atq.server.atqoutstandingqueuedrequests.total
@@ -897,7 +897,7 @@ wmi:
     query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
     - subgroup: DRA
-      query: SELECT Name, DRASyncRequestsSuccessful, DRASyncRequestsMade FROM Win32_PerfRawData_DirectoryServices_DirectoryServices
+      query: SELECT Name, DRASyncRequestsSuccessful, DRASyncRequestsMade FROM Win32_PerfFormattedData_DirectoryServices_DirectoryServices
       featureSet: dra
       metrics:
         - key: active-directory.dra.server.drasynchrequestssuccessful.total
@@ -928,7 +928,7 @@ wmi:
         - key: network.server.name
           value: column:Name
     - subgroup: Network Logons
-      query: SELECT Name, LogonPerSec, LogonTotal  FROM Win32_PerfRawData_PerfNet_Server
+      query: SELECT Name, LogonPerSec, LogonTotal  FROM Win32_PerfFormattedData_PerfNet_Server
       featureSet: network
       metrics:
         - key: active-directory.network.logons.total.count
@@ -951,7 +951,7 @@ wmi:
     query: SELECT Name, Domain from Win32_ComputerSystem
     subgroups:
       - subgroup: NTLM
-        query: select Name, NTLMBindsPersec from Win32_PerfRawData_DirectoryServices_DirectoryServices
+        query: select Name, NTLMBindsPersec from Win32_PerfFormattedData_DirectoryServices_DirectoryServices
         featureSet: ntlm
         metrics:
           - key: active-directory.lsass.server.ntlm.binds.persec.count
