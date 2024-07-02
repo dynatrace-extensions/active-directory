@@ -982,7 +982,7 @@ topology:
       displayName: Active Directory
       enabled: true
       rules:
-      - idPattern: wmi_ad_{dt.entity.host}
+      - idPattern: wmi_ad_{host.name}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory)
@@ -996,7 +996,7 @@ topology:
       displayName: Active Directory DNS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dns_{dt.entity.host}
+      - idPattern: wmi_ad_dns_{host.name}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dns)
@@ -1006,7 +1006,7 @@ topology:
       displayName: Active Directory DHCP
       enabled: true
       rules:
-      - idPattern: wmi_ad_dhcp_{dt.entity.host}
+      - idPattern: wmi_ad_dhcp_{host.name}
         sources:
           - sourceType: Metrics
             condition: $prefix(active-directory.dhcp)
@@ -1016,7 +1016,7 @@ topology:
       displayName: Active Directory DFS
       enabled: true
       rules:
-      - idPattern: wmi_ad_dfs_{dt.entity.host}
+      - idPattern: wmi_ad_dfs_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dfs)
@@ -1030,7 +1030,7 @@ topology:
       displayName: Active Directory LDAP
       enabled: true
       rules:
-      - idPattern: wmi_ad_ldap_{dt.entity.host}
+      - idPattern: wmi_ad_ldap_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.ldap)
@@ -1040,7 +1040,7 @@ topology:
       displayName: Active Directory ATQ
       enabled: true
       rules:
-      - idPattern: wmi_ad_atq_{dt.entity.host}
+      - idPattern: wmi_ad_atq_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.atq)
@@ -1050,7 +1050,7 @@ topology:
       displayName: Active Directory DRA
       enabled: true
       rules:
-      - idPattern: wmi_ad_dra_{dt.entity.host}
+      - idPattern: wmi_ad_dra_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.dra)
@@ -1060,7 +1060,7 @@ topology:
       displayName: Active Directory Network
       enabled: true
       rules:
-      - idPattern: wmi_ad_network_{dt.entity.host}
+      - idPattern: wmi_ad_network_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.network)
@@ -1070,7 +1070,7 @@ topology:
       displayName: Local Security Authority NTLM
       enabled: true
       rules:
-      - idPattern: wmi_lsass_ntlm_{dt.entity.host}
+      - idPattern: wmi_lsass_ntlm_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.server.ntlm)
@@ -1084,7 +1084,7 @@ topology:
       displayName: Active Directory Database
       enabled: true
       rules:
-      - idPattern: wmi_ad_db_{dt.entity.host}
+      - idPattern: wmi_ad_db_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.database)
@@ -1094,7 +1094,7 @@ topology:
       displayName: Local Security Authority ESENT Database
       enabled: true
       rules:
-      - idPattern: wmi_lsass_esent_{dt.entity.host}
+      - idPattern: wmi_lsass_esent_{host.name}
         sources:
         - sourceType: Metrics
           condition: $prefix(active-directory.lsass.esent)
